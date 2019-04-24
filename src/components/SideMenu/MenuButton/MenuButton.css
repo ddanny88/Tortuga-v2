@@ -1,0 +1,14 @@
+.MenuButton-main{
+    background: none;
+    width: 200px;
+    height: 40px;
+    color: white;
+    border-color: rgb(201, 6, 6);
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+    
+
+    margin: 20px;
+
+}

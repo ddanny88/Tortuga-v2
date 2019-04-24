@@ -1,0 +1,33 @@
+/* .MissionSt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+} */
+
+.MissionSt h3,
+.MissionSt p {
+    text-align: center;
+    margin: 10px;
+}
+.mission-rule{
+    margin: 0 auto;
+    width: 60vw;
+}
+.statement-text{
+    color: rgb(184, 179, 179);
+    line-height: 1.8;
+}
+.statement-header{
+    line-height: 1.8;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+
+@media only screen and (max-width: 500px){
+    .statement-header,
+    .statement-text{
+        margin: 50px;
+    }
+ }

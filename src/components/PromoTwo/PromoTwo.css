@@ -1,0 +1,32 @@
+.PromoTwo{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+}
+.promo-stack-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+}
+.img1-2{
+    width: 50vw;
+}
+.Promo-catch{
+    text-align: center;
+    line-height: 1.9;
+}
+
+
+
+
+
+@media only screen and (max-width: 500px){
+    .img1-2,
+    .promo-stack-text{
+     width: 100vw;
+    }
+    .Promo-catch{
+        margin: 50px;
+    }
+ }

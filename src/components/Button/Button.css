@@ -1,0 +1,8 @@
+.Button-main{
+    width: 100px;
+    height: 30px;
+    border: none;
+    /* border-radius: 5px; */
+    cursor: pointer;
+    outline: none;
+}

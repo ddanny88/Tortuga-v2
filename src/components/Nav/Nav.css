@@ -1,0 +1,49 @@
+.nav-container{
+    width: 100vw;
+    height: 40px;
+    background: black;
+
+    display: flex;
+    color: white;
+    justify-content: space-between;
+
+}
+
+.user-menu{
+    display: flex;
+    width: 20%;
+    justify-content: space-around;
+}
+.login-btn{
+    width: 100px;
+    height: 30px;
+}
+
+.fa-bars{
+    color: white;
+    font-size: 70px;
+    display: none;
+    font-size: 30px;
+    margin: 7px;
+}
+.nav-logo{
+    width: 200px;
+    height: 40px;
+}
+
+
+@media only screen and (max-width: 650px){
+    .user-menu,
+    .login-btn{
+        display: none;
+    } 
+    .nav-logo{
+        width: 70px;
+        height: 20px;
+    }
+    .fa-bars{
+        display: block;
+        
+    }
+   
+}

@@ -1,0 +1,35 @@
+.PromoOne{
+  display: flex;
+  width: 100vw;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+.img1{
+    width: 50vw;
+}
+
+.promo-stack-two{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.img2{
+  margin-left: 150%;
+  width: 20vw;
+  align-self: auto;
+}
+
+@media only screen and (max-width: 500px){
+   .img1{
+    width: 100vw;
+   }
+   .img2{
+     margin-left: 400%;
+     margin-top: 30%;
+   }
+}
+
+/* add media query to make each pic 50% of view after desired pixel width; */

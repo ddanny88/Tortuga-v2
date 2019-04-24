@@ -1,0 +1,16 @@
+.Featured{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.Featured-text{
+    text-align: center;
+    margin: 45px;
+}
+.Featured-rule{
+    margin: 20px auto;
+    width: 60vw;
+}

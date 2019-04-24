@@ -7,6 +7,8 @@
     top: 0;
     left: 0;
     z-index: 1;
+    overflow: hidden;
+    animation: slide-in 0.2s linear;
 }
 .SideMenu-close{
     float: right;
@@ -31,6 +33,31 @@
 
 }
 .close{
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    animation: slide-out 0.2s linear; */
     display: none;
+
 }
 /* ************************* */
+
+@keyframes slide-in{
+    from{
+        width: 0;
+    }
+
+    to{
+        width: 90vw;
+    }
+}
+
+@keyframes slide-out{
+    from{
+        width: 90vw;
+    }
+
+    to{
+        width: 0;
+    }
+}

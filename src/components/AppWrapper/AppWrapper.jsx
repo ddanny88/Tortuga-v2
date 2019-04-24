@@ -4,6 +4,7 @@ import HeroSlider from '../HeroSlider/HeroSlider';
 import MissionSt from '../MissionSt/MissionSt';
 import PromoOne from '../PromoOne/PromoOne';
 import PromoTwo from '../PromoTwo/PromoTwo';
+import Featured from '../Featured/Featured';
 
 
 const AppWrapper = () => {
@@ -13,6 +14,7 @@ const AppWrapper = () => {
             <MissionSt />
             <PromoOne />
             <PromoTwo />
+            <Featured />
         </div>
     )
 }

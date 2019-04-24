@@ -1,0 +1,21 @@
+.Item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+.Item-img{
+    width: 25%;
+    margin: 5px;
+}
+
+.Item-user-checkout{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.Item-price{
+    margin-right: 12px;
+}

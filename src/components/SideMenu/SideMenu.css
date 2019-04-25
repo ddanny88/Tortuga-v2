@@ -9,6 +9,7 @@
     z-index: 1;
     overflow: hidden;
     animation: slide-in 0.2s linear;
+    letter-spacing: 2px;
 }
 .SideMenu-close{
     float: right;

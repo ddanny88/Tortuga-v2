@@ -5,7 +5,7 @@ import MenuButton from './MenuButton/MenuButton';
 
 
 const SideMenu = (props) => {
-    const [menuItem, setMenuItem] = useState(['Account', 'Cart'])
+    const [menuItem, setMenuItem] = useState(['Home', 'Account', 'Shop', 'Cart'])
    return (
        <div id="SideMenu" className={props.menuStatus ? "open" : "close"}>
         <span onClick={props.toggle} className="SideMenu-close">&times;</span>
@@ -14,7 +14,7 @@ const SideMenu = (props) => {
                 {menuItem.map( val => <MenuItem text={val} key={val}/>)}
             </ul>
             <br/>
-            <MenuButton text='Login'/>
+            <MenuButton text='LOGIN'/>
         </div>
        </div>
    )

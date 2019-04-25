@@ -21,6 +21,7 @@ const ItemDetails = (props) => {
             </div>
             <h1 className="card-heading">{drink.name}</h1>  
             <p className="item-price">${drink.price}</p>
+            <p className="item-size">{drink.size}</p>
             <div className="details-disc">
                 <p>{drink.discription}</p>
             </div>

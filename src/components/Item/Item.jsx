@@ -20,8 +20,9 @@ const Item = (props) => {
                 <h4 className="Item-name">{props.name}</h4>
                 <div className="Item-user-checkout">
                     <p className="Item-price">${props.price}</p>
-                    <button>cart</button>
+                    <p className="size">{props.size}</p>
                 </div>
+                <i className="fas fa-plus-circle"></i>
             </div>
         </div>
     )

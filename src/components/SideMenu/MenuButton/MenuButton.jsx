@@ -5,7 +5,7 @@ import './MenuButton.css';
 const MenuButton = (props) => {
     return (
         <div className="MenuButton">
-            <button className="MenuButton-main">{props.text}</button>
+            <button className="MenuButton-main"><i className="fas fa-user-alt"></i>{props.text}</button>
         </div>
     )
 }

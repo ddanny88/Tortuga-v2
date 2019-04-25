@@ -1,21 +1,32 @@
 .Item{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 25px; */
+    display: flex;
 }
 .Item-img{
-    width: 25%;
-    margin: 5px;
+   width: 20vw;
+   margin: 0 7vw 15vw 10vw;
+}
+.Item-name{
+    margin-bottom: 5px;
 }
 
 .Item-user-checkout{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 5px; 
+   display: flex;
+   flex-direction: column;
+   line-height: 2
 }
 
-.Item-price{
-    margin-right: 12px;
+.fa-plus-circle{
+    margin: 10px;
+    color: #781214;
+    border-radius: 50%;
+    font-size: 35px;
+    box-shadow: 0 10px 38px rgba(0,0,0,0.2), 0 10px 12px rgba(0,0,0,0.1);
+}
+.size{
+    font-size: 14px;
 }

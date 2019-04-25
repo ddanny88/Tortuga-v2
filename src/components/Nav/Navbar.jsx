@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-// import Button from '../Button/Button'
 import './Nav.css';
-
-
 import SideMenu from '../SideMenu/SideMenu'
+// import Button from '../Button/Button'
 
-//  
+
 
 
 const Navbar = () => {

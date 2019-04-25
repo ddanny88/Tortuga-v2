@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import routes from './routes';
 import Navbar from './components/Nav/Navbar';
 import './App.css';
+import Routes from './Routes';
 
 
 class App extends Component {
@@ -9,9 +9,8 @@ class App extends Component {
     return (
         <div className="App">
           <Navbar />
-          { routes }
-      </div>
-
+          <Routes />
+        </div>
     );
   }
 }

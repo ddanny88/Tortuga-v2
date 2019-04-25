@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Button from '../Button/Button'
+// import Button from '../Button/Button'
 import './Nav.css';
 
 
@@ -19,11 +19,11 @@ const Navbar = () => {
             <SideMenu menuStatus={menuIsOpen} toggle={handleToggle}/>
             <i className="fas fa-bars" onClick={handleToggle}></i>
             <div className="user-menu">
-            <Button 
+            {/* <Button 
                 text="login" 
                 color="green" 
                 textColor="white"
-            />
+            /> */}
             <p>cart</p>
             </div>
         </div>

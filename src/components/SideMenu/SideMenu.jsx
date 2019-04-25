@@ -5,7 +5,6 @@ import MenuButton from './MenuButton/MenuButton';
 
 
 const SideMenu = (props) => {
-    console.log(props)
     const [menuItem, setMenuItem] = useState(['Account', 'Cart'])
    return (
        <div id="SideMenu" className={props.menuStatus ? "open" : "close"}>

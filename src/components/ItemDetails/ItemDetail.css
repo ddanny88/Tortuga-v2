@@ -1,0 +1,35 @@
+.ItemDetails-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5%;
+}
+.card-heading{
+    margin: 5px;
+    text-align: center;
+}
+.card-img{
+    width: 18vh;
+}
+.details-disc{
+    width: 90%;
+    margin: 15px;
+}
+.item-price{
+    font-weight: bold;
+}
+
+.item-button-container{
+    width: 250px;
+    margin-right: 20px;
+}
+#back-arrow{
+   text-align: left;
+}
+
+.fa-chevron-left{
+    font-size: 30px;
+    margin: 25px 0 0 30px;
+    color: black;
+}

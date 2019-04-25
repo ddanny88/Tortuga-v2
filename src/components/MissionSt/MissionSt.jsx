@@ -6,7 +6,7 @@ const MissionSt = () => {
         <div className="MissionSt">
             <h3 className="statement-header">Bringing the party to you since 2019</h3>
             <hr className="mission-rule"/>
-            <p className="statement-text">At tortuga, we take price in providing you with all of our beverage needs.</p>
+            <p className="statement-text">At Tortuga, we take pride in providing you with all of your beverage needs.</p>
         </div>
     )
 }

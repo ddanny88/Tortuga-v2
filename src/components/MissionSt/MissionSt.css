@@ -1,14 +1,10 @@
-/* .MissionSt{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-} */
-
 .MissionSt h3,
 .MissionSt p {
     text-align: center;
     margin: 10px;
+}
+.MissionSt{
+   margin: 25px 0;
 }
 .mission-rule{
     margin: 0 auto;
@@ -20,8 +16,8 @@
 }
 .statement-header{
     line-height: 1.8;
-    margin-top: 10px;
     text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 

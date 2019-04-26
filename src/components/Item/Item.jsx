@@ -3,6 +3,19 @@ import { Link } from 'react-router-dom';
 import './Item.css';
 
 
+
+/**
+ * 
+ * @param {*} props
+ * 
+    key,
+    name,
+    img,
+    price,
+    size
+ */
+
+
 const Item = (props) => {
     return (
         <div className="Item">

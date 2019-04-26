@@ -1,0 +1,17 @@
+.shop{
+    width: 100vw;
+    /* height: 100vh; */
+}
+
+.Search-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+
+}
+.shop-rule{
+    width: 60vw;
+    margin: 30px auto;
+   
+}

@@ -16,6 +16,9 @@ const Navbar = () => {
         <div className="nav-container">
             <SideMenu menuStatus={menuIsOpen} toggle={handleToggle}/>
             <i className="fas fa-bars" onClick={handleToggle}></i>
+            <div className="Nav-logo">
+              <h3>Tortuga</h3>
+            </div>
             <div className="user-menu">
             {/* <Button 
                 text="login" 
@@ -23,6 +26,9 @@ const Navbar = () => {
                 textColor="white"
             /> */}
             <p>cart</p>
+            </div>
+            <div>
+              <i className="fas fa-shopping-cart">(5)</i>
             </div>
         </div>
     )

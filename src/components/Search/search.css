@@ -1,0 +1,24 @@
+.Search-component{
+    display: flex;
+    box-shadow: 0 10px 38px rgba(0,0,0,0.2), 0 10px 12px rgba(0,0,0,0.1);
+}
+
+.Search-input{
+    background:gainsboro;
+    border: none;
+    height: 6vh;
+    width: 80vw;
+    color: black;
+    font-size: 20px;
+    outline: none;
+}
+
+.Search-btn{
+    height: 6vh;
+    width: 8vw;
+    border: none;
+    outline: none;
+}
+.fa-search{
+    font-size: 18px;
+}

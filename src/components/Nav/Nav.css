@@ -8,6 +8,11 @@
     justify-content: space-between;
 
 }
+.Nav-logo{
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+}
 
 .user-menu{
     display: flex;
@@ -31,7 +36,10 @@
     height: 40px;
 }
 
-
+.fa-shopping-cart{
+    color: white;
+    margin: 20px 30px 10px 0;
+}
 
 
 @media only screen and (max-width: 650px){

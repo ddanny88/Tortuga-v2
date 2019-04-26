@@ -25,6 +25,12 @@
 }
 
 
+.SideMenu-list{
+    list-style: none;
+    text-decoration: none;
+}
+
+
 /* Not sure if these are working */
 .open{
     position: fixed;

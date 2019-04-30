@@ -6,4 +6,13 @@
     cursor: pointer;
     outline: none;
     box-shadow: 0 10px 38px rgba(0,0,0,0.2), 0 10px 12px rgba(0,0,0,0.1);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    top: 0;
+    
+}
+.Button-main:active{
+    top: 2px;
+    background: #560d0d;
 }

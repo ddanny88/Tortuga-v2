@@ -5,7 +5,6 @@ import './ItemDetail.css';
 
 
 const ItemDetails = (props) => {
-    console.log(props)
     const { drink } = props;
 
     return (

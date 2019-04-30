@@ -1,10 +1,11 @@
 import React from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import './hero.css';
 
 const HeroSlider = () => {
     return (
-        <div>
+        <div className="Hero">
         <Carousel 
          interval={ 5000 }
          stopOnHover={ false }

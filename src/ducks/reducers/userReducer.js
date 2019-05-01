@@ -1,5 +1,3 @@
-
-
 const initailState = {
     users: [{
         name: 'Daniel'
@@ -8,6 +6,8 @@ const initailState = {
 
 
 const GET_USERS = 'GET_USERS';
+
+
 
 const userReducer = (state = initailState, action) => {
     switch(action){

@@ -11,6 +11,17 @@ const addProduct = async (req, res) => {
     }
 }
 
+const getProducts = async (req, res) => {
+    try {
+        let response = await Product.find({});
+        res.status(200).json(response);
+    } catch(e){
+        console.log(e)
+        res.status(404).json({error: 'COULD NOT GET PRODUCTS'})
+    }
+}
+
 module.exports = {
-    addProduct
+    addProduct,
+    getProducts
 }

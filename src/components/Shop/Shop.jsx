@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getProducts } from '../../ducks/reducers/productReducer'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -6,8 +7,9 @@ import { Carousel } from 'react-responsive-carousel';
 import './shop.css';
 import Item from '../Item/Item'
 import Search from '../Search/Search';
+import Loading from '../Loading/Loading';
 
-
+import axios from 'axios';
 
 const headerImg = 'https://s3.us-east-2.amazonaws.com/tortuga-slider/white_liquor2.png';
 
@@ -30,22 +32,24 @@ const Shop = (props) => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-       let products = props.getProducts();
-       setProducts(products.payload);
-    }, [products])
-
+        const getData = async () => {
+            let data = await props.getProducts();
+            setProducts(data.value.data);
+        }
+        getData();
+    }, [])
 
     let displayProducts = products.map( prod => (
         <Item 
-            key={prod.id}
+            key={prod._id}
             name={prod.name}
             img={prod.img}
             price={prod.price}
             size={prod.size}
         />
     ));
-
     return (
+        
         <div className="shop">
             <Carousel 
                 interval={ 5000 }
@@ -70,15 +74,21 @@ const Shop = (props) => {
 
             <hr className="shop-rule"/>
 
-            { displayProducts }
+            { products.length === 0 ? <Loading /> : displayProducts }
+
         </div>
     )
 }
 
-
+Shop.propTypes = {
+    getProducts: PropTypes.func.isRequired
+}
 
 const mapStateToProps = state => {
-    return state
+    const { products } = state;
+    return {
+        products
+    }
 }
 export default connect(mapStateToProps, { getProducts })(Shop);
 

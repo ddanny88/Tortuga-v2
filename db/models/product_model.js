@@ -8,7 +8,24 @@ const Product = mongoose.model('Product', {
     },
     price: {
         type: Number, 
+        required: true,
+    },
+    size: {
+        type: String,
         required: true
+    },
+    img:{
+        type: String
+    },
+    category: {
+        type: String, 
+        required: true,
+        trim: true
+    },
+    discription: {
+        type: String, 
+        required: true,
+        trim: true
     }
 });
 

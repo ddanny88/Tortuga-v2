@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import AppWrapper from './components/AppWrapper/AppWrapper';
 import Shop from './components/Shop/Shop';
 import ItemDetails from './components/ItemDetails/ItemDetails';
+import Admin from './components/Admin/Admin';
 
 
 const Routes = (props) => {
@@ -20,6 +21,7 @@ const Routes = (props) => {
             <Route exact path="/" component={ AppWrapper } />
             <Route exact path="/products/:name" render={ getProductDetails } />
             <Route exact path="/shop" component={ Shop } />
+            <Route exact path="/users/admin" component={ Admin } />
             <Redirect to="/" />
         </Switch>
     )

@@ -1,8 +1,8 @@
 const express = require('express');
 const { json } = require('body-parser');
-const PORT = 3001;
+const PORT = 5000;
 
-const { addProduct } = require('./controllers/product_controller')
+const { addProduct, getProducts } = require('./controllers/product_controller')
 
 const app = express();
 app.use(json());
@@ -14,7 +14,9 @@ require('../db/mongodb');
 
 
 //ENDPOINTS: 
-app.post('/products', addProduct);
+app.post('/api/add/products', addProduct);
+app.get('/api/products', getProducts);
+
 
 
 

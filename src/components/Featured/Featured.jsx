@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { getFeaturedProducts } from '../../ducks/reducers/productReducer.js'
 import './Featured.css';
@@ -38,6 +39,10 @@ const Featured = (props) => {
             </div>
         </div>
     )
+}
+
+Featured.propTypes = {
+    getFeaturedProducts: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => {

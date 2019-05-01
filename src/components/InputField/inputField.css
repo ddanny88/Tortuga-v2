@@ -1,0 +1,15 @@
+.form-input{
+    margin: 5px;
+    border: 1px solid gainsboro;
+    width: 220px;
+    height: 30px;
+    outline-color: maroon;
+    
+}
+
+.fa-user,
+.fa-lock {
+    color: #111;
+    font-size: 20px;
+    margin: 5px;
+}

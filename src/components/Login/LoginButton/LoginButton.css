@@ -1,0 +1,22 @@
+.login-form-btn{
+    width: 175px;
+    height: 37px;
+    background: #781214;
+    color: white;
+    border: none;
+    letter-spacing: 4px;
+    font-size: 16px;
+    box-shadow: 0 10px 38px rgba(0,0,0,0.2), 0 10px 12px rgba(0,0,0,0.1);
+    position: relative;
+    outline: none;
+    top: 0;
+}
+
+.login-form-btn:active{
+    top: 2px;
+    box-shadow: none;
+}
+.login-cancel{
+   margin: 10px auto;
+    color: black;
+}

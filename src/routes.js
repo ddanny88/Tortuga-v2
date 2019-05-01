@@ -4,6 +4,8 @@ import AppWrapper from './components/AppWrapper/AppWrapper';
 import Shop from './components/Shop/Shop';
 import ItemDetails from './components/ItemDetails/ItemDetails';
 import Admin from './components/Admin/Admin';
+import Cart from './components/Cart/Cart';
+import Login from './components/Login/Login';
 
 
 const Routes = (props) => {
@@ -21,7 +23,9 @@ const Routes = (props) => {
             <Route exact path="/" component={ AppWrapper } />
             <Route exact path="/products/:name" render={ getProductDetails } />
             <Route exact path="/shop" component={ Shop } />
-            <Route exact path="/users/admin" component={ Admin } />
+            <Route exact path="/user/admin" component={ Admin } />
+            <Route exact path="/user/login" component={ Login } />
+            <Route exact path="/cart" component={ Cart } />
             <Redirect to="/" />
         </Switch>
     )

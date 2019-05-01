@@ -1,8 +1,7 @@
 #SideMenu{
     height: 100vh;
-    width: 100vw;
-    background: #111;
-    opacity: 0.9;
+    width: 92vw;
+    background: ghostwhite;
     position: fixed;
     top: 0;
     left: 0;
@@ -10,11 +9,14 @@
     overflow: hidden;
     animation: slide-in 0.2s linear;
     letter-spacing: 2px;
+    box-shadow: 0 10px 38px rgba(0,0,0,0.8), 0 10px 12px rgba(0,0,0,0.1);
 }
 .SideMenu-close{
     float: right;
     font-size: 40px;
     margin: 10px;
+    color: #111;
+    font-size: 55px;
 }
 .SideMenu-user-menu{
     margin: 120px 0 0 0px;
@@ -29,7 +31,9 @@
     list-style: none;
     text-decoration: none;
 }
-
+.register-text{
+    color: #111;
+}
 
 /* Not sure if these are working */
 .open{

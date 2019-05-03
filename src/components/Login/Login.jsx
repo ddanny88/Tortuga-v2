@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import { updataPassword, updateUsername } from '../../ducks/reducers/userReducer';
 import './Login.css';
 import { Link } from 'react-router-dom';
 import InputField from '../InputField/InputField';
@@ -7,12 +9,12 @@ import LoginButton from './LoginButton/LoginButton';
 
 /**
  * login button shoud redirect to the gome page and triggering account setting. 
- */
+*/
 
 
-const Login = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+const Login = (props) => {
+
+    const { username, password } = props;
 
     let icons = [
         "fas fa-user",
@@ -21,14 +23,14 @@ const Login = () => {
 
     const handleChange = (e) => {
         const {name, value} = e.target;
-        name === 'username' && setUsername(value);
-        name ===  'password' && setPassword(value);
+        name === 'username' && props.updateUsername(value);
+        name ===  'password' && props.updataPassword(value);
     }
     
     return (
         <div className="Login">
            <div>
-               <h2 className="login-welcome">Welcome back!</h2>
+               <div>(Logo Here)</div>
             <form className="Login-form">
             <i className="fas fa-glass-cheers"></i>
                 <InputField 
@@ -57,4 +59,12 @@ const Login = () => {
     )
 }
 
-export default Login;
+const mapStateToProps = state => {
+    const { username, password } = state.userReducer;
+    return {
+        username,
+        password
+    };
+}
+
+export default connect(mapStateToProps, { updataPassword, updateUsername })(Login);

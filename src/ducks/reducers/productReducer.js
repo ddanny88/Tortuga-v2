@@ -69,20 +69,9 @@ export function getProducts() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 // product reducer: 
 const productReducer = (state = initialState, action) => {
-    switch(action){
+    switch(action.type){
         case GET_FEATURED_PRODUCTS: 
             return {
                 ...state, 
@@ -91,14 +80,13 @@ const productReducer = (state = initialState, action) => {
         case `${GET_PRODUCTS}_FULFILLED`:
             return {
                 ...state, 
-                products: action.payload
+                products: action.payload.data
             }
         case `${GET_PRODUCTS}_REJECTED`: 
             return (
                 console.log('PRODUCTS REQUEST REJECTED...')
             );
         default: 
-            console.log('default hitiu')
             return state;
     }
 }

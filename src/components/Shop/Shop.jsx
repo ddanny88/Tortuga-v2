@@ -1,32 +1,26 @@
-import React, { useState, useEffect } from 'react';
-// import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getProducts } from '../../ducks/reducers/productReducer'
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import './shop.css';
 import Item from '../Item/Item'
 import Search from '../Search/Search';
 import Loading from '../Loading/Loading';
 
-
 const headerImg = 'https://s3.us-east-2.amazonaws.com/tortuga-slider/white_liquor2.png';
 
 
+
+
 const Shop = (props) => {
-    const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        const getData = async () => {
-            let data = await props.getProducts();
-            setProducts(data.action.payload.data);
-        }
-        getData();
-    }, [])
+      props.getProducts();
+    }, []);
 
-    
-    
-    let displayProducts = products.map( prod => (
+    let displayProducts = props.products.map( prod => (
         <Item 
             key={prod._id}
             name={prod.name}
@@ -36,7 +30,6 @@ const Shop = (props) => {
         />
     ));
 
-    console.log(props)
     return (
         
         <div className="shop">
@@ -63,18 +56,18 @@ const Shop = (props) => {
 
             <hr className="shop-rule"/>
 
-            { products.length === 0 ? <Loading /> : displayProducts }
+            { props.products.length === 0 ? <Loading /> : displayProducts }
 
         </div>
     )
 }
 
-// Shop.propTypes = {
-//     getProducts: PropTypes.func.isRequired
-// }
+Shop.propTypes = {
+    getProducts: PropTypes.func.isRequired
+}
 
 const mapStateToProps = state => {
-    const { products } = state;
+    const { products } = state.productReducer;
     return {
         products
     }

@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updataPassword, updateUsername } from '../../ducks/reducers/userReducer';
+import { updataPassword, updateUsername, clearLoginInput } from '../../ducks/reducers/userReducer';
 import './Login.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import InputField from '../InputField/InputField';
 import LoginButton from './LoginButton/LoginButton';
 
@@ -27,13 +28,15 @@ const Login = (props) => {
         name ===  'password' && props.updataPassword(value);
     }
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
+        const { username, password } = props;
         e.preventDefault();
-        // do login stuff;
-        alert('Oh yeah dog?')
+        let response = await axios.post('/api/user/login', {username, password});
+        if (response.status === 200) console.log('redirect to home');
+        props.clearLoginInput();
     }
-    
-    console.log(props)
+
+
     return (
         <div className="Login">
            <div>
@@ -47,7 +50,6 @@ const Login = (props) => {
                     type="text"
                     icon={icons[0]}
                 />
-                <label htmlFor="password"></label>
                 <InputField 
                     name="password"
                     value={password}
@@ -73,4 +75,4 @@ const mapStateToProps = state => {
     };
 }
 
-export default connect(mapStateToProps, { updataPassword, updateUsername })(Login);
+export default connect(mapStateToProps, { updataPassword, updateUsername, clearLoginInput })(Login);

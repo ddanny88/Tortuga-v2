@@ -24,14 +24,24 @@ app.use(
 
 
 
-//ENDPOINTS: 
+// ENDPOINTS: 
 
-//PRODUCT ENDPOITNS: 
+// PRODUCT ENDPOITNS: 
 app.post('/api/add/products', addProduct);
 app.get('/api/products', getProducts);
 
+// FEATURED PRODUCT ENDPOINTS:
+// get 
+// post 
+/**
+ * The admin should have the ability to request certain product docuents from the products collections and place them inside of the featured products collection to be displayed in the featured prodects section. 
+*/
 
-//USER ENDPOITNS: 
+
+
+
+
+// USER ENDPOITNS: 
 app.post('/api/user/register', registerUser);
 app.post('/api/user/login', loginUser);
 

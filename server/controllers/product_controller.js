@@ -1,6 +1,7 @@
 const { Product } = require('../../db/models/product_model');
+// const { featuredProduct } = require('../../db/models/featuredProduct');
 
-
+// PRODUCT CONTROLLER FUNCTIONS: 
 const addProduct = async (req, res) => {
     try {
         const newProduct = await new Product(req.body);
@@ -20,6 +21,9 @@ const getProducts = async (req, res) => {
         res.status(404).json({error: 'COULD NOT GET PRODUCTS'})
     }
 }
+
+
+// FREATURED PRODUCT CONTROLLER FUNCTIONS:
 
 module.exports = {
     addProduct,

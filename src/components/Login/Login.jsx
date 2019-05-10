@@ -8,7 +8,7 @@ import LoginButton from './LoginButton/LoginButton';
 
 
 /**
- * login button shoud redirect to the gome page and triggering account setting. 
+ * login button shoud redirect to the Home page and triggering account setting. 
 */
 
 
@@ -26,13 +26,19 @@ const Login = (props) => {
         name === 'username' && props.updateUsername(value);
         name ===  'password' && props.updataPassword(value);
     }
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        // do login stuff;
+        alert('Oh yeah dog?')
+    }
     
+    console.log(props)
     return (
         <div className="Login">
            <div>
                <div>(Logo Here)</div>
-            <form className="Login-form">
-            <i className="fas fa-glass-cheers"></i>
+            <form className="Login-form" onSubmit={handleLogin}>
                 <InputField 
                     name="username"
                     value={username}

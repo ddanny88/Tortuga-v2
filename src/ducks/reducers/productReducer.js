@@ -67,6 +67,12 @@ export function getProducts() {
     }
 }
 
+// export const getProducts = () => dispatch => {
+//     return dispatch({
+//         type: GET_PRODUCTS,
+//         payload: axios.get('/api/products')
+//     });
+// }
 
 
 // product reducer: 

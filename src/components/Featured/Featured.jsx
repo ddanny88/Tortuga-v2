@@ -46,7 +46,10 @@ Featured.propTypes = {
 }
 
 const mapStateToProps = state => {
-    return state
+    const {featuredProducts } = state.productReducer;
+    return {
+        featuredProducts
+    }
 }
 
 export default connect(mapStateToProps, { getFeaturedProducts })(Featured);

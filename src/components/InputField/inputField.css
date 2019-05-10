@@ -1,11 +1,11 @@
 
 .form-input{
-    margin: 5px;
+    margin: 8px;
     border: 1px solid gainsboro;
     width: 220px;
-    height: 30px;
-    outline-color: maroon;
-    /* box-shadow: 0 10px 38px rgba(0,0,0,0.2), 0 10px 12px rgba(0,0,0,0.1);s */
+    height: 35px;
+    outline-color: maroon;    
+    box-shadow: 0 10px 38px rgba(0,0,0,0.2), 0 10px 12px rgba(0,0,0,0.1);
     
 }
 

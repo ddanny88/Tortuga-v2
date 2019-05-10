@@ -1,15 +1,16 @@
 .login-form-btn{
-    width: 175px;
-    height: 37px;
+    width: 260px;
+    height: 40px;
     background: #781214;
     color: white;
     border: none;
     letter-spacing: 4px;
-    font-size: 16px;
+    font-size: 17px;
     box-shadow: 0 10px 38px rgba(0,0,0,0.2), 0 10px 12px rgba(0,0,0,0.1);
     position: relative;
     outline: none;
     top: 0;
+    margin-top: 10px;
 }
 
 .login-form-btn:active{

@@ -51,7 +51,7 @@ const Shop = (props) => {
             </Carousel>
 
             <div className="Search-container">
-                <Search placeholder="  search items"/>
+                <Search placeholder="search items"/>
             </div>
 
             <hr className="shop-rule"/>

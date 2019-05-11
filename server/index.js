@@ -3,9 +3,9 @@ const { json } = require('body-parser');
 const session = require('express-session');
 const PORT = 5000;
 
-const { addProduct, getProducts } = require('./controllers/product_controller')
+const { addProduct, getProducts } = require('./controllers/product_controller');
 const { registerUser, loginUser } = require('./controllers/user_controller');
-
+const { searchProducts } = require('./controllers/search_controller');
 const app = express();
 app.use(json());
 
@@ -37,7 +37,8 @@ app.get('/api/products', getProducts);
  * The admin should have the ability to request certain product docuents from the products collections and place them inside of the featured products collection to be displayed in the featured prodects section. 
 */
 
-
+// SEARCH ENDPOITS: 
+app.get('/api/products/find', searchProducts);
 
 
 

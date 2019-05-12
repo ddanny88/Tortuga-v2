@@ -8,9 +8,6 @@ import { getSearchedItems, isSearching, researchSearchedItem } from '../../ducks
 
 const Search = (props) => {
     const [search, setSearch] = useState('');
-    // state for the returned items;
-    // state to determine whether to display search item or shop items
-    // loading state
 
     const handleSearch = (e) => {
       setSearch(e.target.value);

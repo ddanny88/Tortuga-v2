@@ -27,10 +27,9 @@
 
 .fa-bars{
     color: white;
-    font-size: 70px;
     display: none;
-    font-size: 30px;
-    margin: 7px;
+    font-size: 25px;
+    margin: 10px 0 0 10px;
 }
 .nav-logo{
     width: 200px;
@@ -39,7 +38,7 @@
 
 .fa-shopping-cart{
     color: white;
-    margin: 20px 30px 10px 0;
+    margin: 20px 30px 5px 0;
 }
 
 

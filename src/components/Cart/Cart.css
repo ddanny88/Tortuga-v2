@@ -1,0 +1,19 @@
+.Cart {
+    width: 100vw;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e2e2e2;
+}
+
+.Cart-review {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    width: 100vw;
+    height: 40px;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+}

@@ -6,6 +6,7 @@ import ItemDetails from './components/ItemDetails/ItemDetails';
 import Admin from './components/Admin/Admin';
 import Cart from './components/Cart/Cart';
 import Login from './components/Login/Login';
+import Register from './components/Register/Register';
 
 
 
@@ -27,7 +28,8 @@ const Routes = (props) => {
             <Route exact path="/shop" component={ Shop } />
             <Route exact path="/user/admin" component={ Admin } />
             <Route exact path="/user/login" component={ Login } />
-            <Route exact path="/cart" component={ Cart } />
+            <Route exact path="/user/register" component={ Register } />
+            <Route exact path="/user/cart" component={ Cart } />
             <Redirect to="/" />
         </Switch>
     )

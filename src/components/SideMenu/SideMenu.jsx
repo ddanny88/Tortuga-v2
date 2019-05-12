@@ -46,7 +46,7 @@ const SideMenu = (props) => {
 
                     <Link
                         style={linkStyle}
-                        to='/cart'>
+                        to='/user/cart'>
                         <MenuItem 
                             text="Cart"
                             icon={icons[2]} 

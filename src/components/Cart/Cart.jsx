@@ -1,4 +1,8 @@
 import React from 'react';
+import './Cart.css';
+import CartItem from './CartItem/CartItem';
+import CartButton from './CartButton/CartButton';
+import CartTotal from './CartTotal/CartTotal';
 
 
 /**
@@ -6,10 +10,22 @@ import React from 'react';
  */
 
 
-const Cart = () => {
+
+const Cart = (props) => {
     return (
-        <div>
-            Cart
+        <div className="Cart">
+            <div className="Cart-review">
+                <h4>REVIEW YOUR CART ( 5 )</h4>
+            </div>
+                <CartItem />
+                <CartItem />
+                <CartItem />
+            <div className="Cart-total">
+                <CartTotal />
+            </div>
+            <div className="CheckoutButton">
+                <CartButton />
+            </div>
         </div>
     )
 }

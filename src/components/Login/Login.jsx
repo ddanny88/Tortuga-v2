@@ -60,7 +60,7 @@ const Login = (props) => {
                 />
                 <br/>
                 <LoginButton text="LOGIN"/>
-                <Link to="/" style={{textDecoration:'none'}}><p className="login-cancel">Cancel</p></Link>
+                <Link to="/user/register" style={{textDecoration: 'none'}} className="SignUpText"><p> Sign Up</p></Link>
             </form>
            </div>
         </div>

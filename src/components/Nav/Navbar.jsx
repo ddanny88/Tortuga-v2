@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Nav.css';
 import SideMenu from '../SideMenu/SideMenu'
 // import Button from '../Button/Button'
@@ -28,7 +29,7 @@ const Navbar = () => {
             <p>cart</p>
             </div>
             <div>
-              <i className="fas fa-shopping-cart">(5)</i>
+              <Link to="/user/cart"><i className="fas fa-shopping-cart">(5)</i></Link>
             </div>
         </div>
     )

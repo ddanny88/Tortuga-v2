@@ -20,6 +20,7 @@ const Shop = (props) => {
       props.getProducts();
     }, []);
 
+    // static products on page render:
     let displayProducts = props.products.map( prod => (
         <Item 
             key={prod._id}
@@ -29,6 +30,18 @@ const Shop = (props) => {
             size={prod.size}
         />
     ));
+
+    // returned from search: 
+    let displaySearchedItems = props.searchedItems.map( prod => (
+        <Item 
+            key={prod._id}
+            name={prod.name}
+            img={prod.img}
+            price={prod.price}
+            size={prod.size}
+        />
+    ));
+
 
     return (
         
@@ -56,7 +69,8 @@ const Shop = (props) => {
 
             <hr className="shop-rule"/>
 
-            { props.products.length === 0 ? <Loading /> : displayProducts }
+           { props.searchedItems.length > 0 ? displaySearchedItems : props.products && !props.searching ? displayProducts : props.searching  && <Loading /> }
+
 
         </div>
     )
@@ -67,9 +81,11 @@ Shop.propTypes = {
 }
 
 const mapStateToProps = state => {
-    const { products } = state.productReducer;
+    const { products, searchedItems, searching } = state.productReducer;
     return {
-        products
+        products,
+        searchedItems,
+        searching
     }
 }
 export default connect(mapStateToProps, { getProducts })(Shop);

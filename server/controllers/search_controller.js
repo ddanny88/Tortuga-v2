@@ -6,8 +6,8 @@ const searchProducts = async (req, res) => {
     let foundItems = products.filter(val => val.name.toLowerCase().includes(searchTerm.toLowerCase()));
     if (foundItems) {
         res.status(200).json(foundItems);
-    } else {
-        res.status(404).json({error: 'CANT COMPLETE SEARCH'})
+    } else if (foundItems.length === 0) {
+        res.status(404).json({error: 'NO ITEM MATCHES...'})
     }
 }
 

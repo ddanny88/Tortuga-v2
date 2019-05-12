@@ -39,12 +39,17 @@ const initialState = {
             discription: "Hennessy VS is a blend of over 40 different eaux de vies from the four premier growing regions of Cognac. Beautifull golden color with a fruity sweetness and a hint of vanilla on the finish."
         }
     ],
-    products: []   
+    products: [],
+    searchedItems: [],
+    searching: '' 
 }
 
 // ACTION TYPES: 
 const GET_PRODUCTS = 'GET_PRODUCTS';
 const GET_FEATURED_PRODUCTS = 'GET_FEATURED_PRODUCTS';
+const GET_SEARCHED_ITEMS = 'GET_SEARCHED_ITEMS';
+const IS_SEARCHING = 'IS_SEARCHING';
+const RESET_SEARCHED_ITEMS = 'RESET_SEARCHED_ITEMS';
 
 
 
@@ -66,14 +71,26 @@ export function getProducts() {
         payload: axios.get('/api/products')
     }
 }
-
-// export const getProducts = () => dispatch => {
-//     return dispatch({
-//         type: GET_PRODUCTS,
-//         payload: axios.get('/api/products')
-//     });
-// }
-
+export function getSearchedItems(searchedItems) {
+    return {
+        type: GET_SEARCHED_ITEMS,
+        payload: searchedItems
+    }
+}
+export function isSearching(trueOrFalse) {
+    return {
+        type: IS_SEARCHING,
+        payload: trueOrFalse
+    }
+}
+export function researchSearchedItem() {
+    return {
+        type: RESET_SEARCHED_ITEMS,
+        payload: {
+            searchedItems: []
+        }
+    }
+}
 
 // product reducer: 
 const productReducer = (state = initialState, action) => {
@@ -92,6 +109,21 @@ const productReducer = (state = initialState, action) => {
             return (
                 console.log('PRODUCTS REQUEST REJECTED...')
             );
+        case GET_SEARCHED_ITEMS:
+            return {
+                ...state,
+                searchedItems: action.payload.data
+            }
+        case IS_SEARCHING:
+            return {
+                ...state, 
+                searching: action.payload
+            }
+        case RESET_SEARCHED_ITEMS: 
+            return {
+                ...state,
+                searchedItems: action.payload.searchedItems
+            }
         default: 
             return state;
     }

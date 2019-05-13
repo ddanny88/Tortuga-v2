@@ -1,0 +1,27 @@
+.Q-tracker-container {
+    display: flex;
+}
+
+.square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background: #e2d2d2;
+    border:1px solid gainsboro;
+    cursor: pointer;
+}
+.quan-num {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border:1px solid gainsboro;
+}
+
+.fa-minus, .fa-plus {
+    font-size: 10px;
+}

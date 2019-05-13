@@ -26,6 +26,7 @@ const Cart = (props) => {
             <div className="CheckoutButton">
                 <CartButton />
             </div>
+            <p className="continueShopping">Continue Shopping</p>
         </div>
     )
 }

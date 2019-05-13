@@ -1,3 +1,11 @@
-.CartTotal {
-    margin: 10px;
+.CartTotal-container {
+    display: flex;
+    margin: 15px;
+    justify-content: space-between;
+    width: 85vw;
+    font-weight: bold;
+    padding: 2px;
+}
+.subtotal {
+    font-weight: bold;
 }

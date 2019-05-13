@@ -15,10 +15,10 @@ const CartItem = (props) => {
                 src={props.img} 
                 alt="makers mark bottle"
             />
-            <div className="CartItem-disc.">
+            <div className="CartItem-disc">
                 <h4>{props.name}</h4>
                 <p>{props.size}</p>
-                <p>{props.price}</p>
+                <p>${props.price}</p>
             </div>
 
             <div className="CartItem-Quantity">

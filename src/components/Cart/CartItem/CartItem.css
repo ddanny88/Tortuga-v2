@@ -1,14 +1,12 @@
 .CartItem-card {
     width: 85vw;
-    height: 85px;
-
+    height: 90px;
     background: white;
-    margin: 5px auto;
+    margin: 4px auto;
     
     display: flex;
     align-items: center;
     justify-content: space-around;
-
     box-shadow: 0 10px 15px rgba(0,0,0,0.2), 0 10px 12px rgba(0,0,0,0.1);
 }
 

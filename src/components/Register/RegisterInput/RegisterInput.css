@@ -1,0 +1,15 @@
+.RegisterInput {
+    margin: 0 auto;
+}
+
+.register-input {
+    padding-left: 5px;
+    margin: 8px;
+    border: none;
+    width: 300px;
+    height: 40px;
+    outline-color: maroon;
+    box-shadow: 0 10px 38px rgba(0,0,0,0.2), 0 10px 12px rgba(0,0,0,0.1);
+    border: .5px solid gainsboro;
+}
+

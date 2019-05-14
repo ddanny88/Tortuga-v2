@@ -35,7 +35,11 @@ const User = mongoose.model('User', {
                 throw new Error('PLEASE ENTER VALID EMAIL ADDRESS');
             }
         }
-    },
+    }
+});
+
+
+const Address = mongoose.model('Address', {
     city: {
         type: String,
         required: true,
@@ -45,7 +49,7 @@ const User = mongoose.model('User', {
         type: String,
         required: true
     },
-    address: {
+    street: {
         type: String,
         required: true,
         trim: true
@@ -56,9 +60,9 @@ const User = mongoose.model('User', {
     }
 });
 
-
 module.exports = {
-    User
+    User,
+    Address
 }
 
 

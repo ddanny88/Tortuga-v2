@@ -23,6 +23,7 @@ const Shop = (props) => {
     // static products on page render:
     let displayProducts = props.products.map( prod => (
         <Item 
+            item={prod}
             key={prod._id}
             name={prod.name}
             img={prod.img}

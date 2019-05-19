@@ -1,22 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Item.css';
-
-
+import { addToCart } from '../../ducks/reducers/productReducer';
+import { connect } from 'react-redux';
 
 /**
  * 
  * @param {*} props
  * 
+ *  item
     key,
     name,
     img,
     price,
     size
- */
+*/
+
+
 
 
 const Item = (props) => {
+
+    const addItemToCart = () => {
+        const { item } = props;
+        props.addToCart(item);
+    }
+
     return (
         <div className="Item">
             <div className="Item-img-container">
@@ -35,10 +44,17 @@ const Item = (props) => {
                     <p className="Item-price">${props.price}</p>
                     <p className="size">{props.size}</p>
                 </div>
-                <i className="fas fa-plus-circle"></i>
+                <i onClick={addItemToCart} className="fas fa-plus-circle"></i>
             </div>
         </div>
     )
 }
 
-export default Item;
+const mapStateToProps = state => {
+    const { cart } = state.productReducer;
+    return {
+        cart
+    }
+}
+
+export default connect(mapStateToProps, { addToCart })(Item);

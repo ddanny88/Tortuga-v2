@@ -1,0 +1,36 @@
+.EmptyCart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vw;
+}
+
+/* .EmptyCartTxt {
+
+} */
+
+.cart-circle {
+    border: 4px solid maroon;
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    position: relative;
+    top: 0;
+}
+
+.cart-circle:active {
+    box-shadow: none;
+    top: 2px;
+}
+
+#empyCart-cart {
+    font-size: 55px;
+    color: maroon;
+}

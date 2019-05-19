@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.css';
 import SideMenu from '../SideMenu/SideMenu'
-// import Button from '../Button/Button'
+import { connect } from 'react-redux'
 
 
 
-
-const Navbar = () => {
+const Navbar = (props) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const handleToggle = () => {
     setMenuIsOpen(!menuIsOpen);
@@ -29,14 +28,19 @@ const Navbar = () => {
             <p>cart</p>
             </div>
             <div>
-              <Link to="/user/cart"><i className="fas fa-shopping-cart">(5)</i></Link>
+              <Link to="/user/cart"><i className="fas fa-shopping-cart">({props.cart.length})</i></Link>
             </div>
         </div>
     )
 }
 
-export default Navbar;
+const mapStateToProps = state => {
+  const { cart } = state.productReducer;
+  return {
+    cart
+  }
+}
+
+export default connect(mapStateToProps)(Navbar);
 
 
-// hambuger menu
-//<i class="fas fa-bars"></i>

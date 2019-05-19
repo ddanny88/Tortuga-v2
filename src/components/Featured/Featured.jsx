@@ -18,12 +18,13 @@ const Featured = (props) => {
 
     let displayFeaturedProducts = featuredProducts.map( drink => (
         <Item 
-         products={featuredProducts}
-         key={drink.id}
-         name={drink.name}
-         img={drink.img}
-         price={drink.price}
-         size={drink.size}
+        // products={featuredProducts}
+        item={drink}
+        key={drink.id}
+        name={drink.name}
+        img={drink.img}
+        price={drink.price}
+        size={drink.size}
         />
      ));
 

@@ -41,7 +41,8 @@ const initialState = {
     ],
     products: [],
     searchedItems: [],
-    searching: '' 
+    searching: '' ,
+    cart: []
 }
 
 // ACTION TYPES: 
@@ -51,6 +52,9 @@ const GET_SEARCHED_ITEMS = 'GET_SEARCHED_ITEMS';
 const IS_SEARCHING = 'IS_SEARCHING';
 const RESET_SEARCHED_ITEMS = 'RESET_SEARCHED_ITEMS';
 
+// CART ACTIONS TYPES: 
+const ADD_TO_CART = 'ADD_TO_CART';
+const GET_CART = 'GET_CART';
 
 
 
@@ -92,6 +96,22 @@ export function researchSearchedItem() {
     }
 }
 
+
+// CART ACTION FUNCTIONS: 
+
+export function addToCart(item) {
+    return {
+        type: ADD_TO_CART,
+        payload: axios.post('/api/user/cart', item)
+    }
+}
+export function getCart() {
+    return {
+        type: GET_CART,
+        payload: axios.get('/api/get/cart')
+    }
+}
+
 // product reducer: 
 const productReducer = (state = initialState, action) => {
     switch(action.type){
@@ -123,6 +143,20 @@ const productReducer = (state = initialState, action) => {
             return {
                 ...state,
                 searchedItems: action.payload.searchedItems
+            }
+        case `${ADD_TO_CART}_FULFILLED`: 
+            return {
+                ...state, 
+                cart: action.payload.data
+            }
+        case `${ADD_TO_CART}_REJECTED`:
+            return (
+                console.log('CART REQUEST REJECTED..')
+            )
+        case `${GET_CART}_FULFILLED`:
+            return {
+                ...state,
+                cart: action.payload.data
             }
         default: 
             return state;

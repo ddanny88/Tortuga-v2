@@ -6,6 +6,11 @@ const PORT = 5000;
 const { addProduct, getProducts } = require('./controllers/product_controller');
 const { registerUser, loginUser } = require('./controllers/user_controller');
 const { searchProducts } = require('./controllers/search_controller');
+const { checkCart } = require('./middlewares/auth_middleware');
+const { addToCart, getCart } = require('./controllers/cart_controller')
+
+
+
 const app = express();
 app.use(json());
 
@@ -45,6 +50,10 @@ app.get('/api/products/find', searchProducts);
 // USER ENDPOITNS: 
 app.post('/api/user/register', registerUser);
 app.post('/api/user/login', loginUser);
+
+// CART ENDPOINTS: 
+app.post('/api/user/cart', checkCart, addToCart);
+app.get('/api/get/cart', getCart);
 
 
 

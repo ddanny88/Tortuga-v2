@@ -7,7 +7,7 @@ const { addProduct, getProducts } = require('./controllers/product_controller');
 const { registerUser, loginUser } = require('./controllers/user_controller');
 const { searchProducts } = require('./controllers/search_controller');
 const { checkCart } = require('./middlewares/auth_middleware');
-const { addToCart, getCart, removeItem } = require('./controllers/cart_controller')
+const { addToCart, getCart, removeItem, grandSubTotal } = require('./controllers/cart_controller')
 
 
 
@@ -55,8 +55,7 @@ app.post('/api/user/login', loginUser);
 app.post('/api/user/cart', checkCart, addToCart);
 app.get('/api/get/cart', getCart);
 app.delete('/api/cart/:id', removeItem);
-
-
+app.get('/api/cart/subtotal', grandSubTotal);
 
 
 app.listen(PORT, () => console.log('Listening on port ' + PORT));

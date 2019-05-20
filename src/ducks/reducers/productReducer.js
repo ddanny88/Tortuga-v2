@@ -46,7 +46,8 @@ const initialState = {
     products: [],
     searchedItems: [],
     searching: '' ,
-    cart: []
+    cart: [],
+    cartSubtotal: '0.00'
 }
 
 // ACTION TYPES: 
@@ -59,7 +60,7 @@ const RESET_SEARCHED_ITEMS = 'RESET_SEARCHED_ITEMS';
 // CART ACTIONS TYPES: 
 const ADD_TO_CART = 'ADD_TO_CART';
 const GET_CART = 'GET_CART';
-const GET_CART_LENGTH = 'GET_CART_LENGTH';
+const GET_SUBTOTAL = 'GET_SUBTOTAL';
 
 
 
@@ -103,7 +104,6 @@ export function researchSearchedItem() {
 
 
 // CART ACTION FUNCTIONS: 
-
 export function addToCart(item) {
     return {
         type: ADD_TO_CART,
@@ -116,6 +116,14 @@ export function getCart() {
         payload: axios.get('/api/get/cart')
     }
 }
+export function getCartSubtotal() {
+    return {
+        type: GET_SUBTOTAL,
+        payload: axios.get('/api/cart/subtotal')
+    }
+}
+
+
 
 // product reducer: 
 const productReducer = (state = initialState, action) => {
@@ -162,6 +170,11 @@ const productReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cart: action.payload.data
+            }
+        case GET_SUBTOTAL:
+            return {
+                ...state, 
+                cartSubtotal: action.payload.data
             }
         default: 
             return state;

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Cart.css';
 import CartItem from './CartItem/CartItem';
 import CartButton from './CartButton/CartButton';
@@ -7,12 +7,6 @@ import { connect } from 'react-redux';
 import { getCart } from '../../ducks/reducers/productReducer';
 import EmptyCart from './EmptyCart/EmptyCart';
 
-/**
- *  Cart is responsible for checking if multiple items in the cart contian the same product id. if item in cart, dont dipslay cartitem component, instead increment quantitity and pass it down to the quantity tracker via props. 
- * 
- * 
- * 
-*/
 
 
 const Cart = (props) => {
@@ -28,7 +22,7 @@ const Cart = (props) => {
         return c_length;
     }
 
-
+    console.log(props)
     return (
         <div className="Cart">
             <div className="Cart-review">
@@ -67,9 +61,10 @@ const Cart = (props) => {
 }
 
 const mapStateToProps = state => {
-    const { cart } = state.productReducer;
+    const { cart, cartSubtotal } = state.productReducer;
     return {
-        cart
+        cart, 
+        cartSubtotal
     }
 }
 export default connect(mapStateToProps, { getCart })(Cart);

@@ -1,15 +1,30 @@
-/**
- *  addToCart: when an item is added to the cart, the item object is pushed into the req.session.cart and displayed in the cart. 
- * additional functionality to calulate the price. Use composition. 
-*/
+function getItemTotal(item) {
+    return function() {
+        return this.price * this.quantity;
+    }.bind(item);
+}
 
+function calcTax(subtotal) {
+    let tax = subtotal * 0.0825;
+    return (subtotal + tax).toFixed(2);
+}
 
-const getCart = (req, res) => {
-    res.status(200).json(req.session.cart);
+// function composeTotal(req, res) {
+//     return function(a, b) {
+//         return function(cart) {
+//             return b(a(cart))
+//         }
+//     }
+// }
+
+const grandSubTotal = (req, res) => {
+    let subTotal = req.session.cart.map(item => getItemTotal(item)()).reduce((acc, el) => acc + el);
+    console.log(subTotal)
+    req.session.cart.subtotal = subTotal
+    res.status(200).json(req.session.cart.subtotal);
 }
 
 const addToCart = (req, res) => {
-    console.log(req.body)
     let item = req.body;
     if (req.session.cart.length > 0) {
         for (let val of req.session.cart) {
@@ -23,13 +38,6 @@ const addToCart = (req, res) => {
     req.session.cart.push(item);
     return res.status(200).json(req.session.cart)
 }
-
-// const removeItem = (req, res) => {
-//     const itemId = req.params.id;
-//     const itemIdx = req.session.cart.findIndex(item => item._id === itemId)
-//     req.session.cart.splice(itemIdx, 1);
-//     res.status(200).json(req.session.cart)
-// }
 
 const removeItem = (req, res) => {
     let itemId = req.params.id;
@@ -47,31 +55,16 @@ const removeItem = (req, res) => {
     }
 }
 
+const getCart = (req, res) => {
+    res.status(200).json(req.session.cart);
+}
+
 
 module.exports = {
     addToCart,
     getCart,
-    removeItem
+    removeItem,
+    grandSubTotal
 }
 
 
-// const addToCart = (req, res) => {
-//     console.log(req.body)
-//     let item = req.body;
-//     if (req.session.cart.length > 0) {
-//         for (let val of req.session.cart) {
-//             if (val._id === item._id) {
-//                 val.quantity++;
-//                 res.status(200).json(req.session.cart)
-//             } else {
-//                 item.quantity = 1;
-//                 req.session.cart.push(item);
-//                 res.status(200).json(req.session.cart)
-//             }
-//         }
-//     } else {
-//         item.quantity = 1;
-//         req.session.cart.push(item);
-//         res.status(200).json(req.session.cart)
-//     }
-// }

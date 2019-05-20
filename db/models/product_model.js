@@ -22,6 +22,10 @@ const Product = mongoose.model('Product', {
         required: true,
         trim: true
     },
+    quantity: {
+        type: Number,
+        required: true
+    },
     discription: {
         type: String, 
         required: true,

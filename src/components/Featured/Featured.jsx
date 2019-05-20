@@ -20,7 +20,7 @@ const Featured = (props) => {
         <Item 
         // products={featuredProducts}
         item={drink}
-        key={drink.id}
+        key={drink._id}
         name={drink.name}
         img={drink.img}
         price={drink.price}

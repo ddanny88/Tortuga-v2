@@ -20,10 +20,19 @@ const Cart = (props) => {
     useEffect(() => {
         props.getCart();
     },[])
+
+    const getCartLength = () => {
+        let c_length = props.cart.reduce((acc, el) => {
+            return acc + el.quantity;
+        }, 0);
+        return c_length;
+    }
+
+
     return (
         <div className="Cart">
             <div className="Cart-review">
-                <h4>REVIEW YOUR CART ( {props.cart.length} )</h4>
+                <h4>REVIEW YOUR CART ( {props.cart.length === 0 ? 0 : getCartLength()} )</h4>
             </div>
                 {
                     props.cart.length > 0 ? 

@@ -33,14 +33,25 @@ const QuantityTrack = (props) => {
         props.getCart();
     }
 
-    console.log(props.cart)
+    // const getCartLength = () => {
+    //     let c_length = props.cart.reduce((acc, el) => {
+    //         return acc + el.quantity;
+    //     }, 0);
+    //     return c_length;
+    // }
+    const getItemQuantity = () => {
+        const { item } = props;
+        return item.quantity;
+    }
+
+    console.log("HERE",props.cart)
     return (
         <div className="Q-tracker-container">
             <div className="square" onClick={decrimentItem}>
                 <i className="fas fa-minus"></i>
             </div>
             <div className="quan-num">
-                <span>{ props.quan }</span>
+                <span>{props.cart.length === 0 ? 0 : getItemQuantity()}</span>
             </div>
             <div className="square" onClick={incrementItem}>
                 <i className="fas fa-plus"></i>

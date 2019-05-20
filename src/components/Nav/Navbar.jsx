@@ -11,7 +11,12 @@ const Navbar = (props) => {
   const handleToggle = () => {
     setMenuIsOpen(!menuIsOpen);
   }
-   
+  const getCartLength = () => {
+    let c_length = props.cart.reduce((acc, el) => {
+        return acc + el.quantity;
+    }, 0);
+    return c_length;
+  }
     return (
         <div className="nav-container">
             <SideMenu menuStatus={menuIsOpen} toggle={handleToggle}/>
@@ -28,7 +33,7 @@ const Navbar = (props) => {
             <p>cart</p>
             </div>
             <div>
-              <Link to="/user/cart"><i className="fas fa-shopping-cart">({props.cart.length})</i></Link>
+              <Link to="/user/cart"><i className="fas fa-shopping-cart"><span className="Nav-itemDisplay">({props.cart.length === 0 ? 0 : getCartLength()})</span></i></Link>
             </div>
         </div>
     )

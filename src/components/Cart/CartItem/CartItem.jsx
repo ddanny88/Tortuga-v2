@@ -11,7 +11,7 @@ const CartItem = (props) => {
             <img 
                 className="CartItem-img"
                 src={props.img} 
-                alt="makers mark bottle"
+                alt="product img"
             />
             <div className="CartItem-disc">
                 <h4>{props.name}</h4>

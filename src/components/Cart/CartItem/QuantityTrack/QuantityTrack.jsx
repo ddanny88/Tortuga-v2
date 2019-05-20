@@ -1,5 +1,8 @@
-import React from 'react';
+import React  from 'react';
 import './Quantity.css';
+import { connect } from 'react-redux';
+import { addToCart, getCart } from '../../../../ducks/reducers/productReducer';
+import axios from 'axios';
 
 
 /**
@@ -17,22 +20,27 @@ import './Quantity.css';
 
 const QuantityTrack = (props) => {
 
+
     const incrementItem = () => {
-        console.log('+1')
+        const { item } = props;
+        props.addToCart(item)
     }
 
-    const decrimentItem = () => {
-        console.log('-1')
+    // check this with dummy data
+    const decrimentItem = async () => {
+        const { item } = props;
+        let response = await axios.delete(`/api/cart/${item._id}`);
+        props.getCart();
     }
 
-
+    console.log(props.cart)
     return (
         <div className="Q-tracker-container">
             <div className="square" onClick={decrimentItem}>
                 <i className="fas fa-minus"></i>
             </div>
             <div className="quan-num">
-                <span>5</span>
+                <span>{ props.quan }</span>
             </div>
             <div className="square" onClick={incrementItem}>
                 <i className="fas fa-plus"></i>
@@ -41,4 +49,11 @@ const QuantityTrack = (props) => {
     )
 }
 
-export default QuantityTrack;
+const mapStateToProps = state => {
+    const { cart } = state.productReducer;
+    return {
+        cart
+    }
+}
+
+export default connect(mapStateToProps, { addToCart, getCart })(QuantityTrack);

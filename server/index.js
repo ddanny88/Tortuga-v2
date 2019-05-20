@@ -7,7 +7,7 @@ const { addProduct, getProducts } = require('./controllers/product_controller');
 const { registerUser, loginUser } = require('./controllers/user_controller');
 const { searchProducts } = require('./controllers/search_controller');
 const { checkCart } = require('./middlewares/auth_middleware');
-const { addToCart, getCart } = require('./controllers/cart_controller')
+const { addToCart, getCart, removeItem } = require('./controllers/cart_controller')
 
 
 
@@ -54,6 +54,7 @@ app.post('/api/user/login', loginUser);
 // CART ENDPOINTS: 
 app.post('/api/user/cart', checkCart, addToCart);
 app.get('/api/get/cart', getCart);
+app.delete('/api/cart/:id', removeItem);
 
 
 

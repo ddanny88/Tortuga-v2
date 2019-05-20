@@ -7,7 +7,12 @@ import { connect } from 'react-redux';
 import { getCart } from '../../ducks/reducers/productReducer';
 import EmptyCart from './EmptyCart/EmptyCart';
 
-
+/**
+ *  Cart is responsible for checking if multiple items in the cart contian the same product id. if item in cart, dont dipslay cartitem component, instead increment quantitity and pass it down to the quantity tracker via props. 
+ * 
+ * 
+ * 
+*/
 
 
 const Cart = (props) => {
@@ -24,6 +29,8 @@ const Cart = (props) => {
                     props.cart.length > 0 ? 
                     props.cart.map( item => (
                         <CartItem 
+                        quan={0}
+                        item={item}
                         key={item.id}
                         img={item.img}
                         name={item.name}

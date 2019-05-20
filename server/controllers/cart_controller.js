@@ -15,10 +15,18 @@ const addToCart = (req, res) => {
    res.status(200).json(req.session.cart)
 }
 
+const removeItem = (req, res) => {
+    const itemId = req.params.id;
+    const itemIdx = req.session.cart.findIndex(item => item._id === itemId)
+    req.session.cart.splice(itemIdx, 1);
+    res.status(200).json(req.session.cart)
+}
+
 
 module.exports = {
     addToCart,
-    getCart
+    getCart,
+    removeItem
 }
 
 

@@ -5,6 +5,7 @@ import QuantityTrack from './QuantityTrack/QuantityTrack';
 
 
 const CartItem = (props) => {
+    // console.log(props.item)
     return (
         <div className="CartItem-card">
             <img 
@@ -19,7 +20,7 @@ const CartItem = (props) => {
             </div>
 
             <div className="CartItem-Quantity">
-                <QuantityTrack />
+                <QuantityTrack item={props.item} quan={props.quan}/>
             </div>
         </div>
     )

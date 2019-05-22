@@ -1,0 +1,42 @@
+.CheckoutItem {
+    display: flex;
+    border: 1px solid gainsboro;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+}
+
+.CheckoutItem-img {
+    width: 50px;
+    margin: 5px;
+}
+
+.Checkout-item-details {
+    margin: 0 20% 0 20%;
+}
+.CheckoutImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid gainsboro;
+}
+
+.item-quan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    background: #535353;
+    border-radius: 50px;
+    position: relative;
+    top: -45px;
+    right: 10px;
+    color: white;
+    font-size: 12px;
+}

@@ -9,6 +9,7 @@ import Admin from './components/Admin/Admin';
 import Cart from './components/Cart/Cart';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import Checkout from './components/Checkout/Checkout';
 
 
 
@@ -37,6 +38,7 @@ const Routes = (props) => {
             <Route exact path="/user/login" component={ Login } />
             <Route exact path="/user/register" component={ Register } />
             <Route exact path="/user/cart" component={ Cart } />
+            <Route exact path="/user/cart/checkout" component={Checkout} />
             <Redirect to="/" />
         </Switch>
     )

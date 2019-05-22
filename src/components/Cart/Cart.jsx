@@ -5,6 +5,7 @@ import CartButton from './CartButton/CartButton';
 import CartTotal from './CartTotal/CartTotal';
 import { connect } from 'react-redux';
 import { getCart } from '../../ducks/reducers/productReducer';
+import { Redirect, Link } from 'react-router-dom';
 import EmptyCart from './EmptyCart/EmptyCart';
 
 import axios from 'axios';
@@ -13,14 +14,15 @@ import axios from 'axios';
 
 const Cart = (props) => {
     const [subtotal, setSubtotal] = useState('0.00');
+    const [userLoggedIn, setUserLoggedIn] = useState(null);
 
     useEffect(() => {
         props.getCart();        
     },[])
 
     useEffect(() => {
-        getSubtotal()
-    })
+        getSubtotal();
+    });
 
     const getCartLength = () => {
         let c_length = props.cart.reduce((acc, el) => {
@@ -34,9 +36,20 @@ const Cart = (props) => {
         setSubtotal(response.data);
     }
 
+    // const toCheckout = async () => {
+    //     let response = await axios.get('/api/get/user');
+    //     console.log(response)
+    //     if (response.data.user) {
+    //         setUserLoggedIn(true);
+    //     } else {
+    //         setUserLoggedIn(false)
+    //     }
+    // }
+
 
     return (
         <div className="Cart">
+           
             <div className="Cart-review">
                 <h4>REVIEW YOUR CART ( {props.cart.length === 0 ? 0 : getCartLength()} )</h4>
             </div>
@@ -63,7 +76,7 @@ const Cart = (props) => {
                         <CartTotal subtotal={subtotal}/>
                     </div>
                     <div className="CheckoutButton">
-                        <CartButton />
+                        <Link to="/user/cart/checkout"><CartButton /></Link>
                     </div>
                     <p className="continueShopping">Continue Shopping</p>
                     </>

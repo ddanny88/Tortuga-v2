@@ -7,13 +7,20 @@ import { connect } from 'react-redux';
 import { getCart } from '../../ducks/reducers/productReducer';
 import EmptyCart from './EmptyCart/EmptyCart';
 
+import axios from 'axios';
+
 
 
 const Cart = (props) => {
+    const [subtotal, setSubtotal] = useState('0.00');
 
     useEffect(() => {
-        props.getCart();
+        props.getCart();        
     },[])
+
+    useEffect(() => {
+        getSubtotal()
+    })
 
     const getCartLength = () => {
         let c_length = props.cart.reduce((acc, el) => {
@@ -22,7 +29,12 @@ const Cart = (props) => {
         return c_length;
     }
 
-    console.log(props)
+    const getSubtotal = async() => {
+        let response = await axios.get('/api/cart/subtotal')
+        setSubtotal(response.data);
+    }
+
+
     return (
         <div className="Cart">
             <div className="Cart-review">
@@ -48,7 +60,7 @@ const Cart = (props) => {
                     props.cart.length > 0 &&
                     <>
                     <div className="Cart-total">
-                        <CartTotal />
+                        <CartTotal subtotal={subtotal}/>
                     </div>
                     <div className="CheckoutButton">
                         <CartButton />
@@ -61,10 +73,9 @@ const Cart = (props) => {
 }
 
 const mapStateToProps = state => {
-    const { cart, cartSubtotal } = state.productReducer;
+    const { cart } = state.productReducer;
     return {
-        cart, 
-        cartSubtotal
+        cart
     }
 }
 export default connect(mapStateToProps, { getCart })(Cart);

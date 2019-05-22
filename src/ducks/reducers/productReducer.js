@@ -46,8 +46,7 @@ const initialState = {
     products: [],
     searchedItems: [],
     searching: '' ,
-    cart: [],
-    cartSubtotal: '0.00'
+    cart: []
 }
 
 // ACTION TYPES: 
@@ -60,7 +59,6 @@ const RESET_SEARCHED_ITEMS = 'RESET_SEARCHED_ITEMS';
 // CART ACTIONS TYPES: 
 const ADD_TO_CART = 'ADD_TO_CART';
 const GET_CART = 'GET_CART';
-const GET_SUBTOTAL = 'GET_SUBTOTAL';
 
 
 
@@ -116,12 +114,6 @@ export function getCart() {
         payload: axios.get('/api/get/cart')
     }
 }
-export function getCartSubtotal() {
-    return {
-        type: GET_SUBTOTAL,
-        payload: axios.get('/api/cart/subtotal')
-    }
-}
 
 
 
@@ -171,14 +163,11 @@ const productReducer = (state = initialState, action) => {
                 ...state,
                 cart: action.payload.data
             }
-        case GET_SUBTOTAL:
-            return {
-                ...state, 
-                cartSubtotal: action.payload.data
-            }
         default: 
             return state;
     }
 }
 
 export default productReducer;
+
+

@@ -19,8 +19,8 @@ function calcTax(subtotal) {
 
 const grandSubTotal = (req, res) => {
     let subTotal = req.session.cart.map(item => getItemTotal(item)()).reduce((acc, el) => acc + el);
-    console.log(subTotal)
     req.session.cart.subtotal = subTotal
+    console.log(req.session.cart.subtotal)
     res.status(200).json(req.session.cart.subtotal);
 }
 

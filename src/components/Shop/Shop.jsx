@@ -34,7 +34,8 @@ const Shop = (props) => {
 
     // returned from search: 
     let displaySearchedItems = props.searchedItems.map( prod => (
-        <Item 
+        <Item
+            item={prod}
             key={prod._id}
             name={prod.name}
             img={prod.img}

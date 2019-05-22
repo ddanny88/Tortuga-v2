@@ -3,11 +3,17 @@ import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
 import './ItemDetail.css';
 import Loading from '../Loading/Loading';
+import { connect } from 'react-redux';
+import { addToCart } from '../../ducks/reducers/productReducer'
 
 
 
 const ItemDetails = (props) => {
     const { drink } = props;
+
+    const addItemToCart = () => {
+        props.addToCart(drink);
+    }
 
     console.log(props)
     return (
@@ -33,6 +39,7 @@ const ItemDetails = (props) => {
                     </div>
                     <div className="item-button-container">
                         <Button 
+                            addItem={addItemToCart}
                             text="Add to cart"
                             textColor="white"
                             color="#781214"
@@ -47,4 +54,11 @@ const ItemDetails = (props) => {
         </div>
     )
 }
-export default ItemDetails;
+
+const mapStateToProps = state => {
+    const { cart } = state.productReducer;
+    return {
+        cart
+    }
+}
+export default connect(mapStateToProps, { addToCart })(ItemDetails);

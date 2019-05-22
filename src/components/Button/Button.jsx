@@ -14,6 +14,7 @@ const Button = (props) => {
     return (
         <div className="Button">
             <button 
+                onClick={props.addItem}
                 style={{background: color, color: textColor, fontSize: fontSize }}
                 className="Button-main">{ text }
             </button>

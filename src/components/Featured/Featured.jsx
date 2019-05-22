@@ -34,7 +34,7 @@ const Featured = (props) => {
             <div>
                 <h3 className="Featured-text">Featured</h3>
                 <hr className="Featured-rule"/>
-                <div>
+                <div className="Featured-container">
                     { displayFeaturedProducts }
                 </div>
             </div>

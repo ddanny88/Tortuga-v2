@@ -71,7 +71,9 @@ const Shop = (props) => {
 
             <hr className="shop-rule"/>
 
-           { props.searchedItems.length > 0 ? displaySearchedItems : props.products && !props.searching ? displayProducts : props.searching  && <Loading /> }
+          <div className="Shop-Display">
+          { props.searchedItems.length > 0 ? displaySearchedItems : props.products && !props.searching ? displayProducts : props.searching  && <Loading /> }
+          </div>
 
 
         </div>

@@ -3,6 +3,7 @@ import './Checkout.css';
 import { connect } from 'react-redux';
 import { getCart } from '../../ducks/reducers/productReducer';
 import CheckoutItem from './CheckoutItem/CheckoutItem';
+import CheckoutTotal from './CheckoutTotal/CheckoutTotal';
 
 
 const Checkout = (props) => {
@@ -11,9 +12,10 @@ const Checkout = (props) => {
         props.getCart()
     }, [])
 
-
     let displayCheckoutItems = props.cart.map( item => (
         <CheckoutItem 
+            key={item.id}
+            item={item}
             name={item.name}
             img={item.img}
             size={item.size}
@@ -28,6 +30,7 @@ const Checkout = (props) => {
                 <div className="Checkout-Item-list">
                     { displayCheckoutItems }
                 </div>
+            <CheckoutTotal />
         </div>
     )
 }

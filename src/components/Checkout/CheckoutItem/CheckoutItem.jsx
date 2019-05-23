@@ -3,6 +3,11 @@ import './CheckoutItem.css';
 
 
 const CheckoutItem = (props) => {
+
+    const itemTotal = (item) => {
+        return item.price * item.quantity;
+    }
+
     return (
         <div className="CheckoutItem">
             <div className="CheckoutImg">
@@ -13,11 +18,12 @@ const CheckoutItem = (props) => {
                 />
             </div>
             <div className="item-quan">{props.quantity}</div>
+
             <div className="Checkout-item-details">
                 <h3>{props.name}</h3>
                 <p>{props.size}</p>
-                <p>{props.price}</p>
             </div>
+            <div className="CheckoutItem-price">${itemTotal(props.item)}</div>
             
         </div>
     )

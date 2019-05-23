@@ -5,7 +5,7 @@ const initailState = {
     lastName: '',
     email: '',
     city: '',
-    state: '',
+    st: '',
     zipcode: '',
     address: '',
     isLoggedIn: false
@@ -22,6 +22,10 @@ const UPDATE_FIRST_NAME = 'UPDATE_FIRST_NAME';
 const UPDATE_LAST_NAME = 'UPDATE_LAST_NAME';
 const UPDATE_EMAIL = 'UPDATE_EMAIL';
 const UPDATE_LOGGED_IN = 'UPDATE_LOGGED_IN';
+const UPDATE_ADDRESS = 'UPDATE_ADDRESS';
+const UPDATE_CITY = 'UPDATE_CITY';
+const UPDATE_STATE = 'UPDATE_STATE';
+const UPDATE_ZIPCODE = 'UPDATE_ZIPCODE';
 
 
 
@@ -86,9 +90,30 @@ export function updateLoggedIn(trueOrFalse) {
         payload: trueOrFalse
     }
 }
-
-
-
+export function updateAddress(address) {
+    return {
+        type: UPDATE_ADDRESS,
+        payload: address
+    }
+}
+export function updateCity(city) {
+    return {
+        type: UPDATE_CITY,
+        payload: city
+    }
+}
+export function updateState(state) {
+    return {
+        type: UPDATE_STATE,
+        payload: state
+    }
+}
+export function updateZipcode(zip) {
+    return {
+        type: UPDATE_ZIPCODE,
+        payload: zip
+    }
+}
 
 const userReducer = (state = initailState, action) => {
     switch(action.type){
@@ -141,6 +166,26 @@ const userReducer = (state = initailState, action) => {
             return {
                 ...state, 
                 isLoggedIn: action.payload
+            }
+        case UPDATE_ADDRESS:
+            return {
+                ...state,
+                address: action.payload
+            }
+        case UPDATE_CITY:
+            return {
+                ...state, 
+                city: action.payload
+            }
+        case UPDATE_STATE: 
+            return {
+                ...state,
+                st: action.payload
+            }
+        case UPDATE_ZIPCODE: 
+            return {
+                ...state,
+                zipcode: action.payload
             }
         default: 
             return state;

@@ -5,9 +5,9 @@ const addAddress = async (req, res) => {
    try {
     const address = await new Address(req.body);
     const saveAddress = await address.save();
-    // console.log(req.session)
-    req.session.user.address = address;
-    res.status(200).json(req.session.user)
+    req.session.address = address
+    console.log(req.session)
+    res.status(200).json(req.session.address)
    } catch (e) {
     console.log(e)
     res.json({error: 'ADDRESS ERROR'});

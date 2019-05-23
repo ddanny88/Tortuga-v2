@@ -9,7 +9,7 @@ const Address = mongoose.model('Address', {
         type: String,
         required: true
     },
-    state: {
+    st: {
         type: String,
         required: true
     },

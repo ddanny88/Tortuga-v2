@@ -1,20 +1,34 @@
 import React from 'react';
 import ShippingIput from './ShippingInput/ShippingInput';
 import ShippingButton from './ShippingButton/ShippingButton';
-
-
+import { connect } from 'react-redux';
 import './ShippingForm.css'
+import { updateAddress, updateCity, updateState, updateZipcode } from '../../../ducks/reducers/userReducer';
+import axios from 'axios'
 
 const ShippingForm = (props) => {
+    
+    const { address, st, city, zipcode } = props;
 
-
-
-    const submitAddress = (e) => {
+    const submitAddress = async (e) => {
         e.preventDefault();
-        console.log('address sent')
+        let data = {
+            address,
+            st,
+            city,
+            zipcode
+        }
+        let response = await axios.post('/api/user/address', data);
+        console.log(response);
     }
 
-
+    const handleShippingInput = (e) => {
+       const { name, value } = e.target;
+       name === 'address' && props.updateAddress(value);
+       name === 'city' && props.updateCity(value);
+       name === 'state' && props.updateState(value);
+       name === 'zipcode' && props.updateZipcode(value);
+    }
 
     return (
         <div className="Shipping">
@@ -22,18 +36,30 @@ const ShippingForm = (props) => {
            <form className="ShippingForm" onSubmit={submitAddress}>
                 <ShippingIput
                     name="address"
+                    value={address}
                     label="Address"  
+                    handleChange={handleShippingInput}
+                    placeholder="address"
                 />
                 <ShippingIput
                     name="city"
+                    value={city}
+                    handleChange={handleShippingInput}
                     label="City"
+                    placeholder="city"
                 />
                 <ShippingIput
                     name="state"
+                    value={st}
+                    handleChange={handleShippingInput}
+                    placeholder="state"
                     label="State"
                 /> 
                 <ShippingIput
                     name="zipcode"
+                    value={zipcode}
+                    handleChange={handleShippingInput}
+                    placeholder="zipcode"
                     label="Zip Code"
                 />  
 
@@ -43,7 +69,14 @@ const ShippingForm = (props) => {
     )
 }
 
+const mapStateToProps = state => {
+    const { address, city, st, zipcode} = state.userReducer;
+    return {
+        address,
+        city, 
+        st,
+        zipcode
+    }
+}
 
-
-
-export default ShippingForm;
+export default connect(mapStateToProps, { updateAddress, updateCity, updateState, updateZipcode })(ShippingForm); 

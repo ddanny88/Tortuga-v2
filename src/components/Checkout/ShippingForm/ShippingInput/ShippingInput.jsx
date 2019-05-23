@@ -9,7 +9,7 @@ const ShippingIput = (props) => {
             <input 
                 name={name}
                 value={props.value}
-                onChange={props.change}
+                onChange={props.handleChange}
                 className="ShippingInput"
                 type="text"
                 placeholder={props.placeholder}

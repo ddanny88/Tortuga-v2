@@ -8,6 +8,7 @@ import './shop.css';
 import Item from '../Item/Item'
 import Search from '../Search/Search';
 import Loading from '../Loading/Loading';
+import uuid from 'uuid/v4';
 
 const headerImg = 'https://s3.us-east-2.amazonaws.com/tortuga-slider/white_liquor2.png';
 
@@ -24,7 +25,7 @@ const Shop = (props) => {
     let displayProducts = props.products.map( prod => (
         <Item 
             item={prod}
-            key={prod._id}
+            key={uuid()}
             name={prod.name}
             img={prod.img}
             price={prod.price}

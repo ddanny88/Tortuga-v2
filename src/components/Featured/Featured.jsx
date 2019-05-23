@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getFeaturedProducts } from '../../ducks/reducers/productReducer.js'
 import './Featured.css';
 import Item from '../Item/Item';
+import uuid from 'uuid/v4';
 
 
 const Featured = (props) => {
@@ -20,7 +21,7 @@ const Featured = (props) => {
         <Item 
         // products={featuredProducts}
         item={drink}
-        key={drink._id}
+        key={uuid()}
         name={drink.name}
         img={drink.img}
         price={drink.price}

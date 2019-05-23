@@ -5,8 +5,9 @@ import CartButton from './CartButton/CartButton';
 import CartTotal from './CartTotal/CartTotal';
 import { connect } from 'react-redux';
 import { getCart } from '../../ducks/reducers/productReducer';
-import { Redirect, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import EmptyCart from './EmptyCart/EmptyCart';
+import uuid from 'uuid/v4';
 
 import axios from 'axios';
 
@@ -14,7 +15,7 @@ import axios from 'axios';
 
 const Cart = (props) => {
     const [subtotal, setSubtotal] = useState('0.00');
-    const [userLoggedIn, setUserLoggedIn] = useState(null);
+    // const [userLoggedIn, setUserLoggedIn] = useState(null);
 
     useEffect(() => {
         props.getCart();        
@@ -59,7 +60,7 @@ const Cart = (props) => {
                         <CartItem 
                         quan={0}
                         item={item}
-                        key={item.id}
+                        key={uuid()}
                         img={item.img}
                         name={item.name}
                         size={item.size}

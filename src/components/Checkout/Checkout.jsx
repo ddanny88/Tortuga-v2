@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getCart } from '../../ducks/reducers/productReducer';
 import CheckoutItem from './CheckoutItem/CheckoutItem';
 import CheckoutTotal from './CheckoutTotal/CheckoutTotal';
+import uuid from 'uuid/v4';
 
 
 const Checkout = (props) => {
@@ -14,7 +15,7 @@ const Checkout = (props) => {
 
     let displayCheckoutItems = props.cart.map( item => (
         <CheckoutItem 
-            key={item.id}
+            key={uuid()}
             item={item}
             name={item.name}
             img={item.img}

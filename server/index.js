@@ -8,6 +8,7 @@ const { registerUser, loginUser, getUser } = require('./controllers/user_control
 const { searchProducts } = require('./controllers/search_controller');
 const { checkCart } = require('./middlewares/auth_middleware');
 const { addToCart, getCart, removeItem, grandSubTotal } = require('./controllers/cart_controller')
+const { addAddress } = require('./controllers/address_controller');
 
 
 
@@ -45,8 +46,6 @@ app.get('/api/products', getProducts);
 // SEARCH ENDPOITS: 
 app.get('/api/products/find', searchProducts);
 
-
-
 // USER ENDPOITNS: 
 app.post('/api/user/register', registerUser);
 app.post('/api/user/login', loginUser);
@@ -58,5 +57,18 @@ app.get('/api/get/cart', getCart);
 app.delete('/api/cart/:id', removeItem);
 app.get('/api/cart/subtotal', grandSubTotal);
 
+// ADDRESS ENDPOINTS: 
+app.post('/api/user/address', addAddress);
+
 
 app.listen(PORT, () => console.log('Listening on port ' + PORT));
+
+
+
+// {
+    
+//     "address": "111 main st",
+//     "city": "Dallas",
+//     "state": "Texas",
+//     "zipcode": "123456"
+// }

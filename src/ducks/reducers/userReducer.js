@@ -27,6 +27,8 @@ const UPDATE_LOGGED_IN = 'UPDATE_LOGGED_IN';
 
 
 
+
+
 export function updateUsername(username) {
     return {
         type: UPDATE_USERNAME,
@@ -84,6 +86,7 @@ export function updateLoggedIn(trueOrFalse) {
         payload: trueOrFalse
     }
 }
+
 
 
 

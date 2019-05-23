@@ -5,6 +5,7 @@ import { getCart } from '../../ducks/reducers/productReducer';
 import CheckoutItem from './CheckoutItem/CheckoutItem';
 import CheckoutTotal from './CheckoutTotal/CheckoutTotal';
 import uuid from 'uuid/v4';
+import ShippingForm from './ShippingForm/ShippingForm';
 
 
 const Checkout = (props) => {
@@ -32,6 +33,7 @@ const Checkout = (props) => {
                     { displayCheckoutItems }
                 </div>
             <CheckoutTotal />
+            <ShippingForm />
         </div>
     )
 }

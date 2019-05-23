@@ -38,31 +38,8 @@ const User = mongoose.model('User', {
     }
 });
 
-
-const Address = mongoose.model('Address', {
-    city: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    state: {
-        type: String,
-        required: true
-    },
-    street: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    zipcode: {
-        type: String,
-        required: true
-    }
-});
-
 module.exports = {
-    User,
-    Address
+    User
 }
 
 

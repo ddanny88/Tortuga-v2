@@ -16,6 +16,7 @@ const QuantityTrack = (props) => {
         const { item } = props;
         let response = await axios.delete(`/api/cart/${item._id}`);
         props.getCart();
+        return response;
     }
 
     const getItemQuantity = () => {

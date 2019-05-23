@@ -9,17 +9,10 @@ import { getCart } from '../../ducks/reducers/productReducer';
 
 const Navbar = (props) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
-  const [length, setlength] = useState(0);
 
   useEffect(() => {
     props.getCart();
   }, []);
-
-  useEffect(() => {
-    let x = getCartLength();
-    setlength(x);
-  });
-
 
   const handleToggle = () => {
     setMenuIsOpen(!menuIsOpen);
@@ -49,7 +42,7 @@ const Navbar = (props) => {
             <p>cart</p>
             </div>
             <div>
-              <Link to="/user/cart"><i className="fas fa-shopping-cart"><span className="Nav-itemDisplay">({ length })</span></i></Link>
+              <Link to="/user/cart"><i className="fas fa-shopping-cart"><span className="Nav-itemDisplay">({ props.cart.length > 0 ? getCartLength() : 0 })</span></i></Link>
             </div>
         </div>
     )

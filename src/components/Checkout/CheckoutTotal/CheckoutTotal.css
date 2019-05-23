@@ -1,3 +1,34 @@
 .CheckoutTotal {
-    
+    width: 100vw;
+    line-height: 1.5;
+    margin-top: 20px;
+}
+
+.Checkout-sub,
+.Checkout-tax,
+.Checkout-total {
+    font-weight: bold;
+    margin-left: 5vw;
+}
+
+.Checkout-rule {
+    width: 80vw;
+    margin: 5px auto;
+}
+.T{
+    float: right;
+    margin-right: 5vw;
+}
+
+.checkout-back-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa-chevron-left {
+    font-size: 15px;
+    position: relative;
+    top: -13px;
+    margin-right: 5px;
 }

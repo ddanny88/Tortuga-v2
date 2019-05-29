@@ -36,7 +36,10 @@ const initialState = {
     products: [],
     searchedItems: [],
     searching: '' ,
-    cart: []
+    cart: [],
+    menuIsOpen: false,
+    loginClicked: false,
+    isLoggedIn: false
 }
 
 // ACTION TYPES: 
@@ -49,6 +52,13 @@ const RESET_SEARCHED_ITEMS = 'RESET_SEARCHED_ITEMS';
 // CART ACTIONS TYPES: 
 const ADD_TO_CART = 'ADD_TO_CART';
 const GET_CART = 'GET_CART';
+
+
+// User
+const UPDATE_SIDE_MENU = 'UPDATE_SIDE_MENU';
+const UPDATE_CLICKED = 'UPDATE_CLICKED';
+const UPDATE_IS_LOGGED_IN = 'UPDATE_IS_LOGGED_IN';
+
 
 
 
@@ -104,6 +114,24 @@ export function getCart() {
         payload: axios.get('/api/get/cart')
     }
 }
+export function updateSideMenu(boolean) {
+    return {
+        type: UPDATE_SIDE_MENU,
+        payload: boolean
+    }
+}
+export function updateClicked(boolean) {
+    return {
+        type: UPDATE_CLICKED,
+        payload: boolean
+    }
+}
+export function updateIsLoggedIn(boolean) {
+    return {
+        type: UPDATE_IS_LOGGED_IN,
+        payload: boolean
+    }
+}
 
 
 
@@ -152,6 +180,21 @@ const productReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cart: action.payload.data
+            }
+        case UPDATE_SIDE_MENU:
+            return {
+                ...state, 
+                menuIsOpen: action.payload
+            }
+        case UPDATE_CLICKED:
+            return {
+                ...state,
+                loginClicked: action.payload
+            }
+        case UPDATE_IS_LOGGED_IN:
+            return {
+                ...state, 
+                isLoggedIn: action.payload
             }
         default: 
             return state;

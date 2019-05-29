@@ -4,7 +4,7 @@ const session = require('express-session');
 const PORT = 5000;
 
 const { addProduct, getProducts } = require('./controllers/product_controller');
-const { registerUser, loginUser, getUser } = require('./controllers/user_controller');
+const { registerUser, loginUser, getUser, logout } = require('./controllers/user_controller');
 const { searchProducts } = require('./controllers/search_controller');
 const { checkCart } = require('./middlewares/auth_middleware');
 const { addToCart, getCart, removeItem, grandSubTotal } = require('./controllers/cart_controller')
@@ -50,6 +50,7 @@ app.get('/api/products/find', searchProducts);
 app.post('/api/user/register', registerUser);
 app.post('/api/user/login', loginUser);
 app.get('/api/get/user', getUser);
+app.get('/api/user/logout', logout);
 
 // CART ENDPOINTS: 
 app.post('/api/user/cart', checkCart, addToCart);

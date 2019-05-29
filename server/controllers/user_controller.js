@@ -41,9 +41,15 @@ const getUser = (req, res) => {
     res.status(200).json(req.session)
 }
 
+const logout = (req, res) => {
+    req.session.destroy();
+    res.sendStatus(200);
+}
+
 
 module.exports = {
    registerUser,
    loginUser,
-   getUser
+   getUser,
+   logout
 }

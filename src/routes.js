@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getProducts } from './ducks/reducers/productReducer'
+import { getProducts, updateSideMenu } from './ducks/reducers/productReducer'
 import AppWrapper from './components/AppWrapper/AppWrapper';
 import Shop from './components/Shop/Shop';
 import ItemDetails from './components/ItemDetails/ItemDetails';
@@ -19,7 +19,6 @@ const Routes = (props) => {
     useEffect(() => {
         props.getProducts();
     }, []);
-
 
     const getProductDetails = (routeProps) => {
         let name = routeProps.match.params.name;
@@ -45,12 +44,13 @@ const Routes = (props) => {
 }
 
 const mapStateToProps = state => {
-    const { products } = state.productReducer;
+    const { products, menuIsOpen } = state.productReducer;
     return {
-        products
+        products,
+        menuIsOpen
     }
 }
-export default connect( mapStateToProps, { getProducts })(Routes);
+export default connect( mapStateToProps, { getProducts, updateSideMenu })(Routes);
 
 
 

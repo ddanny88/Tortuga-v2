@@ -1,20 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { updataPassword, updateUsername, clearLoginInput } from '../../ducks/reducers/userReducer';
+import { updateSideMenu, updateIsLoggedIn } from '../../ducks/reducers/productReducer'
 import './Login.css';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import InputField from '../InputField/InputField';
 import LoginButton from './LoginButton/LoginButton';
 
 
-/**
- * login button shoud redirect to the Home page and triggering account setting. 
-*/
-
-
 const Login = (props) => {
-
     const { username, password } = props;
 
     let icons = [
@@ -32,13 +27,15 @@ const Login = (props) => {
         const { username, password } = props;
         e.preventDefault();
         let response = await axios.post('/api/user/login', {username, password});
-        if (response.status === 200) console.log('redirect to home');
+        if (response.status === 200) {
+            props.updateIsLoggedIn(true)
+        }
         props.clearLoginInput();
     }
 
-
     return (
         <div className="Login">
+            { props.isLoggedIn && <Redirect to="/" />}
            <div>
                <div>(Logo Here)</div>
             <form className="Login-form" onSubmit={handleLogin}>
@@ -49,6 +46,7 @@ const Login = (props) => {
                     placeholder="  username"
                     type="text"
                     icon={icons[0]}
+                    label="username"
                 />
                 <InputField 
                     name="password"
@@ -57,6 +55,7 @@ const Login = (props) => {
                     placeholder="  password"
                     type="password"
                     icon={icons[1]}
+                    label="password"
                 />
                 <br/>
                 <LoginButton text="LOGIN"/>
@@ -69,10 +68,13 @@ const Login = (props) => {
 
 const mapStateToProps = state => {
     const { username, password } = state.userReducer;
+    const { menuIsOpen, isLoggedIn } = state.productReducer;
     return {
         username,
-        password
+        password,
+        menuIsOpen,
+        isLoggedIn
     };
 }
 
-export default connect(mapStateToProps, { updataPassword, updateUsername, clearLoginInput })(Login);
+export default connect(mapStateToProps, { updataPassword, updateUsername, clearLoginInput, updateSideMenu, updateIsLoggedIn })(Login);

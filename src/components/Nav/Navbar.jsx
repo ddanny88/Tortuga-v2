@@ -1,21 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.css';
 import SideMenu from '../SideMenu/SideMenu'
 import { connect } from 'react-redux'
-import { getCart } from '../../ducks/reducers/productReducer';
+import { getCart, updateSideMenu } from '../../ducks/reducers/productReducer';
 
 
 
 const Navbar = (props) => {
-  const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   useEffect(() => {
     props.getCart();
   }, []);
 
   const handleToggle = () => {
-    setMenuIsOpen(!menuIsOpen);
+    props.updateSideMenu(true)
   }
 
   const getCartLength = () => {
@@ -25,20 +24,14 @@ const Navbar = (props) => {
     return c_length;
   }
 
-
     return (
         <div className="nav-container">
-            <SideMenu menuStatus={menuIsOpen} toggle={handleToggle}/>
+            <SideMenu menuStatus={props.menuIsOpen} toggle={handleToggle}/>
             <i className="fas fa-bars" onClick={handleToggle}></i>
             <div className="Nav-logo">
               <h3>Tortuga</h3>
             </div>
             <div className="user-menu">
-            {/* <Button 
-                text="login" 
-                color="green" 
-                textColor="white"
-            /> */}
             <p>cart</p>
             </div>
             <div>
@@ -49,12 +42,13 @@ const Navbar = (props) => {
 }
 
 const mapStateToProps = state => {
-  const { cart } = state.productReducer;
+  const { cart, menuIsOpen } = state.productReducer;
   return {
-    cart
+    cart,
+    menuIsOpen
   }
 }
 
-export default connect(mapStateToProps, {getCart})(Navbar);
+export default connect(mapStateToProps, { getCart, updateSideMenu })(Navbar);
 
 

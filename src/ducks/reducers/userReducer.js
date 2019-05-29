@@ -9,7 +9,6 @@ const initailState = {
     zipcode: '',
     address: '',
     isLoggedIn: false
-
 }
 
 
@@ -114,6 +113,12 @@ export function updateZipcode(zip) {
         payload: zip
     }
 }
+
+
+
+
+
+
 
 const userReducer = (state = initailState, action) => {
     switch(action.type){

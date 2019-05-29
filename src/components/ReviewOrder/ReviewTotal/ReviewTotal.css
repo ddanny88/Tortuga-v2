@@ -1,0 +1,17 @@
+.totalReview {
+    width: 100vw;
+    height: 20vh;
+    margin: 10px 0 0 40px;
+    line-height: 1.8;
+
+}
+.totalReview p {
+    font-weight: 16px;
+}
+
+.total_span {
+    font-weight: bold;
+}
+.itemTotal {
+    margin-right: 10px;
+}

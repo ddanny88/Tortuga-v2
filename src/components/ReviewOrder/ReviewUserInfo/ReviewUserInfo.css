@@ -1,0 +1,12 @@
+.UserInfo {
+    margin: 10px 0 0 20px;
+    line-height: 1.8;
+    
+}
+.UserInfo p {
+    font-size: 16px;
+}
+
+.review_span {
+    font-weight: bold;
+}

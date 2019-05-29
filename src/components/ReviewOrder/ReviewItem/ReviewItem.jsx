@@ -18,6 +18,7 @@ const ReviewItem = (props) => {
                 <h3>{props.name}</h3>
                 <p>{props.size}</p>
             </div>
+            <p className="itemTotal">{`$${props.itemTotal(props.item)}`}</p>
         </div>
     )
 }

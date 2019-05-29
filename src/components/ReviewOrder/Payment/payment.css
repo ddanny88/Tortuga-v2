@@ -1,0 +1,10 @@
+.payment-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;;
+    width: 100vw;
+    margin: 20px;
+    background: #fafafa;
+    border-top: 1px solid gainsboro;
+}

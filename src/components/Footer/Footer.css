@@ -2,7 +2,7 @@
     margin-top: 30px;
     width: 100vw;
     height: 30vh;
-    background: #111;
+    background: rgb(31, 29, 29);
 
     display: flex;
     flex-direction: column;

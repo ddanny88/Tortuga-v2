@@ -1,21 +1,37 @@
 .fa-angle-left {
     font-size: 40px;
-    color: black;
+    color: white;
+    margin-left: 10px;
 }
 .Review {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 100vw;
 }
 .Review-Cart {
     width: 100vw;
-    border: 1px solid red;
+    border: 1px solid gainsboro;
 }
 .Review-User-info {
     width: 100vw;
-    border: 1px solid blue;
+    border: 1px solid gainsboro;
     height: 25vh;
 }
 .Review-Address-info {
     width: 100vw;
-    border: 1px solid green;
+    border-top: 1px solid gainsboro;
     height: 25vh;
+    
+}
+.payment-heading {
+    display: flex;
+    align-items: center;
+    color: white;
+    background: #7b1315;
+}
+.payme {
+    margin-left: 100px;
+    font-size: 20px;
 }

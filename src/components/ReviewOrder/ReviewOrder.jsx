@@ -6,6 +6,8 @@ import ReviewItem from './ReviewItem/ReviewItem';
 import uuid from 'uuid/v4';
 import ReviewUserInfo from './ReviewUserInfo/ReviewUserInfo';
 import ReviewAddressInfo from './ReviewAddress/ReviewAddressInfo';
+import Payment from './Payment/Payment';
+import ReviewTotal from './ReviewTotal/ReviewTotal';
 
 
 
@@ -24,23 +26,36 @@ const ReviewOrder = (props) => {
         getUserInfo();
     }, [])
 
-    console.log(addressInfo)
+    const calcItemTotal = (val) => {
+        return val.quantity * val.price;
+    }
+
 
     return (
+        <div>
+            <div className="payment-heading">
+           <Link to="/user/cart/checkout"><i className="fas fa-angle-left"></i></Link>
+           <h2 className="payme">Place Order</h2>
+           </div>
         <div className="Review">
-            <Link to="/user/cart/checkout"><i className="fas fa-angle-left"></i></Link>
            <div className="Review-Cart">
             { cartInfo.length > 0 ? cartInfo.map( item => (
                 <ReviewItem 
                     key={uuid()}
                     img={item.img}
                     quantity={item.quantity}
+                    name={item.name}
+                    size={item.size}
+                    itemTotal={calcItemTotal}
+                    item={item}
                 />
-            )) 
+            ))
                 : 
                 null
             }
            </div>
+
+           <ReviewTotal />
 
            <div className="Review-User-info">
             { userInfo ? 
@@ -54,7 +69,6 @@ const ReviewOrder = (props) => {
                 }
            </div>
 
-
            <div className="Review-Address-info">
                 { addressInfo ? 
                     <ReviewAddressInfo 
@@ -67,6 +81,8 @@ const ReviewOrder = (props) => {
                     null
                 }
            </div>
+                <Payment />
+        </div>
         </div>
     )
 }

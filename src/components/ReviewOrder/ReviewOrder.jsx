@@ -13,8 +13,11 @@ import ReviewTotal from './ReviewTotal/ReviewTotal';
 
 const ReviewOrder = (props) => {
     const [userInfo, setUserInfo] = useState({});
-    const[addressInfo, setAddressInfo] = useState({});
+    const [addressInfo, setAddressInfo] = useState({});
     const [cartInfo, setCartInfo] = useState({});
+    const [subtotal, setSubtotal] = useState('0.00');
+    const [tax, setTax] = useState('0.00');
+    const [total, setTotal] = useState('0.00');
 
     useEffect(() => {
         const getUserInfo = async() => {
@@ -26,8 +29,26 @@ const ReviewOrder = (props) => {
         getUserInfo();
     }, [])
 
+    useEffect(() => {
+        getSubtotal();
+    });
+    useEffect(() => {
+        let tax = calcTax(subtotal);
+        setTax(tax);
+    });
+    useEffect(() => {
+        setTotal(subtotal + tax);
+    });
+    const getSubtotal = async() => {
+        let response = await axios.get('/api/cart/subtotal')
+        setSubtotal(response.data);
+    }
     const calcItemTotal = (val) => {
         return val.quantity * val.price;
+    }
+
+    const calcTax = subtotal => {
+        return  parseInt((subtotal * 0.0825));
     }
 
 
@@ -55,7 +76,7 @@ const ReviewOrder = (props) => {
             }
            </div>
 
-           <ReviewTotal />
+           <ReviewTotal subtotal={subtotal} tax={tax} total={total}/>
 
            <div className="Review-User-info">
             { userInfo ? 

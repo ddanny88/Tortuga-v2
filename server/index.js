@@ -9,6 +9,7 @@ const { searchProducts } = require('./controllers/search_controller');
 const { checkCart } = require('./middlewares/auth_middleware');
 const { addToCart, getCart, removeItem, grandSubTotal } = require('./controllers/cart_controller')
 const { addAddress } = require('./controllers/address_controller');
+const { takePayment } = require('./controllers/payment_controller');
 
 
 
@@ -60,6 +61,15 @@ app.get('/api/cart/subtotal', grandSubTotal);
 
 // ADDRESS ENDPOINTS: 
 app.post('/api/user/address', addAddress);
+
+//PAYMENT:
+app.post('/api/checkout/payment', takePayment);
+
+
+
+
+
+
 
 
 app.listen(PORT, () => console.log('Listening on port ' + PORT));

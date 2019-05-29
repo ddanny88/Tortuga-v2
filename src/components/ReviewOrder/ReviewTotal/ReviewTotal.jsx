@@ -3,11 +3,24 @@ import './ReviewTotal.css';
 
 
 const ReviewTotal = (props) => {
+   
+
+    console.log(props)
+
     return (
         <div className="totalReview">
-            <p><span className="total_span">Subtotal</span>$</p>
-            <p><span className="total_span">Tax</span>$</p>
-            <p><span className="total_span">Total</span>$</p>
+            <div className="reviewTotalItem">
+                <p><span className="total_span">Subtotal</span></p>
+                <p className="money">${props.subtotal}</p>
+            </div>
+            <div className="reviewTotalItem">
+                <p><span className="total_span">Tax</span></p>
+                <p className="money">${props.tax}</p>
+            </div>
+            <div className="reviewTotalItem">
+                <p><span className="total_span">Total</span></p>
+                <p className="money">${props.total}</p>
+            </div>
         </div>
     )
 }

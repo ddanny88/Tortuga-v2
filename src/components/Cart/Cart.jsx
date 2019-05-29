@@ -15,7 +15,6 @@ import axios from 'axios';
 
 const Cart = (props) => {
     const [subtotal, setSubtotal] = useState('0.00');
-    // const [userLoggedIn, setUserLoggedIn] = useState(null);
 
     useEffect(() => {
         props.getCart();        

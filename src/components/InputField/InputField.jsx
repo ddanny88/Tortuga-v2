@@ -15,8 +15,10 @@ import './inputField.css';
 const InputField = (props) => {
     return (
         <div className="InputField">
-            {/* <i className={props.icon}></i> */}
-            <label htmlFor={props.name}>{props.label}</label>
+            <div>
+            <i className={props.icon}></i>
+            <label htmlFor={props.name} className="InputField-label">{props.label}</label>
+            </div>
             <input 
                 className="form-input"
                 type={props.type}

@@ -37,7 +37,8 @@ const Login = (props) => {
         <div className="Login">
             { props.isLoggedIn && <Redirect to="/" />}
            <div>
-               <div>(Logo Here)</div>
+               <h1 className="Login-logo">TORTUGA</h1>
+               <hr className="logo-rule"/>
             <form className="Login-form" onSubmit={handleLogin}>
                 <InputField 
                     name="username"
@@ -46,7 +47,7 @@ const Login = (props) => {
                     placeholder="  username"
                     type="text"
                     icon={icons[0]}
-                    label="username"
+                    label="Username"
                 />
                 <InputField 
                     name="password"
@@ -55,7 +56,7 @@ const Login = (props) => {
                     placeholder="  password"
                     type="password"
                     icon={icons[1]}
-                    label="password"
+                    label="Password"
                 />
                 <br/>
                 <LoginButton text="LOGIN"/>

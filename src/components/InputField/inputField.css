@@ -1,15 +1,27 @@
+.Login-logo {
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+.logo-rule {
+    width: 50vw;
+    margin: 0 auto;
+}
 .InputField {
     display: flex;
     flex-direction: column;
+    margin: 5px;
 }
 .form-input{
     margin: 8px;
     border: 1px solid gainsboro;
-    width: 220px;
-    height: 35px;
+    width: 255px;
+    height: 38px;
     outline-color: maroon;    
-    /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
-    
+}
+
+.InputField-label {
+    margin-left: 5px;
 }
 
 .fa-user,

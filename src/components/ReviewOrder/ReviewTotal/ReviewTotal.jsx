@@ -4,9 +4,6 @@ import './ReviewTotal.css';
 
 const ReviewTotal = (props) => {
    
-
-    console.log(props)
-
     return (
         <div className="totalReview">
             <div className="reviewTotalItem">

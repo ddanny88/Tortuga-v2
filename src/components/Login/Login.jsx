@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { updataPassword, updateUsername, clearLoginInput } from '../../ducks/reducers/userReducer';
 import { updateSideMenu, updateIsLoggedIn } from '../../ducks/reducers/productReducer'
@@ -10,6 +10,7 @@ import LoginButton from './LoginButton/LoginButton';
 
 
 const Login = (props) => {
+    const[error, setError] =useState('')
     const { username, password } = props;
 
     let icons = [
@@ -27,8 +28,12 @@ const Login = (props) => {
         const { username, password } = props;
         e.preventDefault();
         let response = await axios.post('/api/user/login', {username, password});
-        if (response.status === 200) {
-            props.updateIsLoggedIn(true)
+        console.log(response)
+        if (!response.data.error) {
+            props.updateIsLoggedIn(true);
+            setError(null);
+        } else {
+            setError(response.data.error);
         }
         props.clearLoginInput();
     }
@@ -59,6 +64,7 @@ const Login = (props) => {
                     label="Password"
                 />
                 <br/>
+                { error && <p className="loginError">{error}</p> }
                 <LoginButton text="LOGIN"/>
                 <Link to="/user/register" style={{textDecoration: 'none'}} className="SignUpText"><p> Sign Up</p></Link>
             </form>

@@ -4,7 +4,7 @@
     padding-top: 20px;
 }
 .ship-heading {
-    margin: 5px;
+    margin: 15px 0 5px 10px;
 }
 .ShippingForm {
     padding: 30px;
@@ -12,4 +12,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.addressError {
+    color: red;
+
+    margin: 10px;
 }

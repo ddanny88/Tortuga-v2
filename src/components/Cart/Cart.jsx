@@ -79,7 +79,7 @@ const Cart = (props) => {
                     <div className="CheckoutButton">
                         <Link to="/user/cart/checkout"><CartButton /></Link>
                     </div>
-                    <p className="continueShopping">Continue Shopping</p>
+                   <Link to="/shop" style={{textDecoration: 'none', color: 'black'}}><p className="continueShopping">Continue Shopping</p></Link>
                     </>
                 }
         </div>

@@ -37,3 +37,12 @@
     font-size: 13px;
     margin-top: 5px;
 }
+
+.item-back {
+    background: none;
+    border: none;
+}
+
+#item-backArrow {
+    font-size: 26px;
+}

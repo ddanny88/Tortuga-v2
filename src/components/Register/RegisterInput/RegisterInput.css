@@ -1,15 +1,21 @@
 .RegisterInput {
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .register-input {
     padding-left: 10px;
-    margin: 8px;
+    margin: 10px;
     border: none;
     width: 300px;
     height: 40px;
     outline-color: maroon;
-    box-shadow: 0 10px 38px rgba(0,0,0,0.2), 0 10px 12px rgba(0,0,0,0.1);
     border: .5px solid gainsboro;
+}
+.registerLabel {
+    margin-left: 20px;
+    margin-top: 5px;
+    font-weight: bold;
 }
 

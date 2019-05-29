@@ -21,3 +21,9 @@
     text-transform: uppercase;
     margin: 20px;
 }
+.backtologin {
+    font-weight: bold;
+}
+.registerError {
+    color: red;
+}

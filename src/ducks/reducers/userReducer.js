@@ -25,6 +25,7 @@ const UPDATE_ADDRESS = 'UPDATE_ADDRESS';
 const UPDATE_CITY = 'UPDATE_CITY';
 const UPDATE_STATE = 'UPDATE_STATE';
 const UPDATE_ZIPCODE = 'UPDATE_ZIPCODE';
+const CLEAR_ADDRESS = 'CLEAR_ADDRESS';
 
 
 
@@ -113,6 +114,17 @@ export function updateZipcode(zip) {
         payload: zip
     }
 }
+export function clearAddressInput() {
+    return {
+        type: CLEAR_ADDRESS,
+        payload: {
+            city: '',
+            st: '',
+            zipcode: '',
+            address: ''
+        }
+    }
+}
 
 
 
@@ -191,6 +203,14 @@ const userReducer = (state = initailState, action) => {
             return {
                 ...state,
                 zipcode: action.payload
+            }
+        case CLEAR_ADDRESS:
+            return {
+                ...state, 
+                city: action.payload.city,
+                st: action.payload.st,
+                zipcode: action.payload.zipcode,
+                address: action.payload.address,
             }
         default: 
             return state;

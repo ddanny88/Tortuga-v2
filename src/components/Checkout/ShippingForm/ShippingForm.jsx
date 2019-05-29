@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ShippingIput from './ShippingInput/ShippingInput';
 import ShippingButton from './ShippingButton/ShippingButton';
 import { connect } from 'react-redux';
 import './ShippingForm.css'
-import { updateAddress, updateCity, updateState, updateZipcode } from '../../../ducks/reducers/userReducer';
+import { updateAddress, updateCity, updateState, updateZipcode, clearAddressInput } from '../../../ducks/reducers/userReducer';
 import axios from 'axios'
 
 const ShippingForm = (props) => {
-    
+    const [error, setError] = useState('');
     const { address, st, city, zipcode } = props;
 
     const submitAddress = async (e) => {
@@ -19,7 +19,12 @@ const ShippingForm = (props) => {
             zipcode
         }
         let response = await axios.post('/api/user/address', data);
-        console.log(response);
+        if (response.data.error) {
+            setError(response.data.error);
+        } else {
+            props.clearAddressInput();
+            setError(null);
+        }
     }
 
     const handleShippingInput = (e) => {
@@ -62,7 +67,7 @@ const ShippingForm = (props) => {
                     placeholder="zipcode"
                     label="Zip Code"
                 />  
-
+                { error && <p className="addressError">{error}</p> }
                 <ShippingButton />
            </form>
         </div>
@@ -79,4 +84,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { updateAddress, updateCity, updateState, updateZipcode })(ShippingForm); 
+export default connect(mapStateToProps, { updateAddress, updateCity, updateState, updateZipcode, clearAddressInput })(ShippingForm); 

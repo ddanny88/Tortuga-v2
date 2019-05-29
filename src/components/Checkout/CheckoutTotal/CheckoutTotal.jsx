@@ -24,7 +24,7 @@ const CheckoutTotal = (props) => {
     });
 
     const calcTax = subtotal => {
-        return  parseInt((subtotal * 0.0825).toFixed(2));
+        return  parseInt((subtotal * 0.0825));
     }
 
     const getSubtotal = async() => {

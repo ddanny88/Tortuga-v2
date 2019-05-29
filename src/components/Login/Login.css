@@ -25,6 +25,10 @@
     margin: 10px;
     color: black;
 }
+.loginError {
+    color: red;
+    font-size: 17px;
+}
 
 
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
 import './ItemDetail.css';
 import Loading from '../Loading/Loading';
@@ -15,14 +14,17 @@ const ItemDetails = (props) => {
         props.addToCart(drink);
     }
 
-    console.log(props)
+    const handleBack = () => {
+        props.history.goBack();
+    }
+
+
     return (
         <div>
             {
                 props.drink ?
-                
                 <div>
-                    <Link to="/"><i className="fas fa-chevron-left"></i></Link>
+                    <button className="item-back" onClick={handleBack}><i id="item-backArrow" className="fas fa-chevron-left"></i></button>
                     <div className="ItemDetails-card">
                     <div>
                         <img 

@@ -2,7 +2,7 @@ const { User } = require('../../db/models/user_model');
 const bcrypt = require('bcryptjs');
 
 const registerUser = async (req, res) => {
-    const { username , password } = req.body;
+    const { username , password, firstName, lastName, email} = req.body;
     let user = await User.find({ username: username });
     if (user.length === 0) {
         try {
@@ -11,7 +11,9 @@ const registerUser = async (req, res) => {
             let newUser = await new User( {...req.body, password: hash} );
             let saveUser = await newUser.save();
             req.session.user = { 
-                username
+                firstName,
+                lastName,
+                email
             }
             res.status(201).json(req.session.user);
         } catch (e) {

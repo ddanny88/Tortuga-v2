@@ -1,0 +1,21 @@
+.fa-angle-left {
+    font-size: 40px;
+    color: black;
+}
+.Review {
+    width: 100vw;
+}
+.Review-Cart {
+    width: 100vw;
+    border: 1px solid red;
+}
+.Review-User-info {
+    width: 100vw;
+    border: 1px solid blue;
+    height: 25vh;
+}
+.Review-Address-info {
+    width: 100vw;
+    border: 1px solid green;
+    height: 25vh;
+}

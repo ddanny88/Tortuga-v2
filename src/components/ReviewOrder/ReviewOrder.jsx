@@ -1,0 +1,89 @@
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import './ReviewOrder.css'
+import axios from 'axios';
+import ReviewItem from './ReviewItem/ReviewItem';
+import uuid from 'uuid/v4';
+import ReviewUserInfo from './ReviewUserInfo/ReviewUserInfo';
+import ReviewAddressInfo from './ReviewAddress/ReviewAddressInfo';
+
+
+
+const ReviewOrder = (props) => {
+    const [userInfo, setUserInfo] = useState({});
+    const[addressInfo, setAddressInfo] = useState({});
+    const [cartInfo, setCartInfo] = useState({});
+
+    useEffect(() => {
+        const getUserInfo = async() => {
+            let response = await axios.get('/api/get/user');
+            setAddressInfo(response.data.address);
+            setCartInfo(response.data.cart);
+            setUserInfo(response.data.user);
+        }
+        getUserInfo();
+    }, [])
+
+    console.log(addressInfo)
+
+    return (
+        <div className="Review">
+            <Link to="/user/cart/checkout"><i className="fas fa-angle-left"></i></Link>
+           <div className="Review-Cart">
+            { cartInfo.length > 0 ? cartInfo.map( item => (
+                <ReviewItem 
+                    key={uuid()}
+                    img={item.img}
+                    quantity={item.quantity}
+                />
+            )) 
+                : 
+                null
+            }
+           </div>
+
+           <div className="Review-User-info">
+            { userInfo ? 
+                    <ReviewUserInfo 
+                        firstName={userInfo.firstName}
+                        lastName={userInfo.lastName}
+                        email={userInfo.email}
+                    /> 
+                    : 
+                    null
+                }
+           </div>
+
+
+           <div className="Review-Address-info">
+                { addressInfo ? 
+                    <ReviewAddressInfo 
+                        address={addressInfo.address}
+                        city={addressInfo.city}
+                        st={addressInfo.st}
+                        zipcode={addressInfo.zipcode}
+                    /> 
+                    : 
+                    null
+                }
+           </div>
+        </div>
+    )
+}
+
+export default ReviewOrder;
+
+
+
+// const mapStateToProp = state => {
+//     const { firstName, lastName, email, city, st, zipcode, address } = state.userReducer;
+//     return { 
+//         firstName,
+//         lastName,
+//         email,
+//         city,
+//         st,
+//         zipcode,
+//         address
+//     }
+// }

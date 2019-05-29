@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ShippingIput from './ShippingInput/ShippingInput';
 import ShippingButton from './ShippingButton/ShippingButton';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './ShippingForm.css'
 import { updateAddress, updateCity, updateState, updateZipcode, clearAddressInput } from '../../../ducks/reducers/userReducer';
@@ -8,6 +9,7 @@ import axios from 'axios'
 
 const ShippingForm = (props) => {
     const [error, setError] = useState('');
+    const [toPayment, setToPayment] = useState(false);
     const { address, st, city, zipcode } = props;
 
     const submitAddress = async (e) => {
@@ -24,6 +26,7 @@ const ShippingForm = (props) => {
         } else {
             props.clearAddressInput();
             setError(null);
+            setToPayment(true)
         }
     }
 
@@ -69,6 +72,7 @@ const ShippingForm = (props) => {
                 />  
                 { error && <p className="addressError">{error}</p> }
                 <ShippingButton />
+                { toPayment && <Redirect to="/user/cart/checkout/review"/> }
            </form>
         </div>
     )

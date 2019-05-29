@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const initailState = {
     username: '',
     password: '',
@@ -12,7 +14,6 @@ const initailState = {
 }
 
 
-const GET_USERS = 'GET_USERS';
 const UPDATE_USERNAME = 'UPDATE_USERNAME';
 const UPDATE_PASSWORD = 'UPDATE_PASSWORD';
 const CLEAR_LOGIN_INPUT = 'CLEAR_LOGIN_INPUT';
@@ -26,11 +27,6 @@ const UPDATE_CITY = 'UPDATE_CITY';
 const UPDATE_STATE = 'UPDATE_STATE';
 const UPDATE_ZIPCODE = 'UPDATE_ZIPCODE';
 const CLEAR_ADDRESS = 'CLEAR_ADDRESS';
-
-
-
-
-
 
 
 export function updateUsername(username) {
@@ -133,12 +129,7 @@ export function clearAddressInput() {
 
 
 const userReducer = (state = initailState, action) => {
-    switch(action.type){
-        case GET_USERS: 
-            return {
-                ...state, 
-                users: initailState.users
-            }
+    switch (action.type) {
         case UPDATE_USERNAME: 
             return {
                 ...state,

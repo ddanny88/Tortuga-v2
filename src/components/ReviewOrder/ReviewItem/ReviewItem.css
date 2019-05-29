@@ -1,0 +1,52 @@
+.ReviewItem {
+    display: flex;
+    border: 1px solid gainsboro;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    background: #fafafa;
+}
+
+.ReviewItem-img {
+    width: 40px;
+    margin: 5px;
+}
+
+.ReviewItem-price {
+    margin-right: 20px;
+}
+
+.Review-item-details {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 50%;
+}
+.ReviewImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid gainsboro;
+    margin-left: 20px;
+}
+
+.item-quan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    background: #535353;
+    border-radius: 50px;
+    position: relative;
+    top: -40px;
+    right: 10px;
+    color: white;
+    font-size: 12px;
+}

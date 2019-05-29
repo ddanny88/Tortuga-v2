@@ -19,7 +19,7 @@ require('../db/mongodb');
 
 app.use( 
     session({
-        secret: 'tortuga secret',
+        secret: process.env.SESSION_SECRET || "secret",
         resave: false,
         saveUninitialized: false,
         cookie: {
